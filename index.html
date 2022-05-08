@@ -3,9 +3,22 @@
 	<head>
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
+		<link rel="stylesheet" href="style.css">
 	</head>
 
-	<body>
+	<body style="background-color:rgb(136, 89, 89);">
+		<div id="header" style="background-color:black;height:200px">
+			<img src="Images/logo.jpg" style="float:left;height:100%">
+			<div id="innerHeader" style="text-align:right;height:100%">
+			<img src="Images/coverPhoto.jpg" style="height:100%">
+			</div>
+		</div>
+		<div class="topnav">
+			<a class="active navOp" href="#home"><span style="height: 300px;">Home</span></a>
+			<a href="#news" class="navOp">News</a>
+			<a href="#contact" class="navOp">Contact</a>
+			<a href="#about" class="navOp">About</a>
+		</div>
 		<div id="score">
 			<label for="lblScore">SCORE:</label>
 			<input id="lblScore" type="text" />
