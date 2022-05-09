@@ -170,3 +170,44 @@ function UpdatePosition() {
 		Draw();
 	}
 }
+
+
+// function replace( hide, show ) {
+// 	document.getElementById(hide).style.display="none";
+// 	document.getElementById(show).style.display="block";
+//   }
+  
+function replace(show) {
+	if (show =="welcome")
+	{
+		document.getElementById("welcome").style.display="block";
+		document.getElementById("register").style.display="none";
+		document.getElementById("login").style.display="none";
+		document.getElementById("about").style.display="none";
+	}
+
+	if (show =="register")
+	{
+		document.getElementById("welcome").style.display="none";
+		document.getElementById("register").style.display="block";
+		document.getElementById("login").style.display="none";
+		document.getElementById("about").style.display="none";
+	}
+
+	if (show =="login")
+	{
+		document.getElementById("welcome").style.display="none";
+		document.getElementById("register").style.display="none";
+		document.getElementById("login").style.display="block";
+		document.getElementById("about").style.display="none";
+	} 
+
+	if (show =="about")
+	{
+		document.getElementById("welcome").style.display="none";
+		document.getElementById("register").style.display="none";
+		document.getElementById("login").style.display="none";
+		document.getElementById("about").style.display="block";
+	} 
+}
+  
