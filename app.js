@@ -6,6 +6,9 @@ var pac_color;
 var start_time;
 var time_elapsed;
 var interval;
+var users=[{username:"k",password:"k",fullname:"k",email:"k"}];
+var actor=new Image()
+actor.src="Images/actor1";
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -99,6 +102,7 @@ function GetKeyPressed() {
 
 function Draw() {
 	canvas.width = canvas.width; //clean board
+
 	lblScore.value = score;
 	lblTime.value = time_elapsed;
 	for (var i = 0; i < 10; i++) {
@@ -180,7 +184,7 @@ function UpdatePosition() {
 function replace(show) {
 	if (show =="welcome")
 	{
-		document.getElementById("welcome").style.display="block";
+		document.getElementById("realWelcome").style.display="block";
 		document.getElementById("register").style.display="none";
 		document.getElementById("login").style.display="none";
 		document.getElementById("about").style.display="none";
@@ -188,7 +192,7 @@ function replace(show) {
 
 	if (show =="register")
 	{
-		document.getElementById("welcome").style.display="none";
+		document.getElementById("realWelcome").style.display="none";
 		document.getElementById("register").style.display="block";
 		document.getElementById("login").style.display="none";
 		document.getElementById("about").style.display="none";
@@ -196,7 +200,7 @@ function replace(show) {
 
 	if (show =="login")
 	{
-		document.getElementById("welcome").style.display="none";
+		document.getElementById("realWelcome").style.display="none";
 		document.getElementById("register").style.display="none";
 		document.getElementById("login").style.display="block";
 		document.getElementById("about").style.display="none";
@@ -204,7 +208,7 @@ function replace(show) {
 
 	if (show =="about")
 	{
-		document.getElementById("welcome").style.display="none";
+		document.getElementById("realWelcome").style.display="none";
 		document.getElementById("register").style.display="none";
 		document.getElementById("login").style.display="none";
 		document.getElementById("about").style.display="block";
@@ -241,8 +245,8 @@ function checkFields(){
   });
 };
 
+const firstUser={username:"k",password:"k",fullname:"k",email:"k"};
 
-const users=[];
 function registerUser(){
 	let usernameValue=$("#username").val()
 	let passwordValue=$("#psw").val();
@@ -250,10 +254,7 @@ function registerUser(){
 	let emailValue=$("#email").val();
 	let dateValue=$("#date").val();
 	let user={username:usernameValue,password:passwordValue,fullname:fullnameValue, email:emailValue,date:dateValue};
-	alert(users)
 	users.push(user)
-	alert(user.username)
-
 }
 
 
