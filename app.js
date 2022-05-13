@@ -211,3 +211,55 @@ function replace(show) {
 	} 
 }
   
+
+
+
+function checkFields(){
+//	originalOnload = window.onload;
+//window.onload = function() {
+//  if (originalOnload) {
+//    originalOnload();
+//  }
+  // YOUR JQUERY
+  var usernameValue=$("username").val()
+  var passwordValue=$("#password").val();
+  var fullnameValue=$("#fullname").val();
+  var emailValue=$("#email").val();
+  var dateValue=$("date").val();
+
+  $("#myform").validate({
+	  rules:{
+		usernameValue:{
+			  required:true
+		  },
+		  passwordValue:{
+			  required:true,
+			  minlength:6,
+		  }
+  
+	  }
+  });
+};
+
+
+const users=[];
+function registerUser(){
+	let usernameValue=$("#username").val()
+	let passwordValue=$("#psw").val();
+	let fullnameValue=$("#fullname").val();
+	let emailValue=$("#email").val();
+	let dateValue=$("#date").val();
+	let user={username:usernameValue,password:passwordValue,fullname:fullnameValue, email:emailValue,date:dateValue};
+	alert(users)
+	users.push(user)
+	alert(user.username)
+
+}
+
+
+
+
+
+	
+
+
