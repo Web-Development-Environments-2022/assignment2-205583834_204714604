@@ -1,0 +1,51 @@
+body{
+    background-color: black;
+}
+#header{
+    background-color:black;
+    height:100px;
+    
+}
+
+#headerLogoImg{
+        float:left;
+}
+
+.headerImgs{
+    height: 100%;
+}
+
+#headerTop{
+    display: inline-flex;
+    height: 70%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.headerNav{
+    align-items: center;
+    justify-content:space-evenly;
+    height: 30%;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    background-color: rgb(50, 48, 48);
+}
+
+.headerNav a{
+    border-color: rgb(80, 80, 80);
+    height: 50%;
+    text-decoration: none;
+    color: aliceblue;
+    letter-spacing: 3px;
+    padding: 3px;
+    font-size:x-large;
+    height: 80%;
+    margin-left: 20px;
+}
+
+
+
+#navWrapper{
+    text-align:center;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="./jquery-3.4.1.slim.min.js"></script>
+		<script type="text/javascript" src="./app.js"></script>
+		<script type="text/javascript" src="./login.js"></script>
+		<script type="text/javascript" src="./scripts/game.js"></script>
+
+		<script>
+			const firstUser={username:"k",password:"k",fullname:"k",email:"k"};
+			const users=[firstUser]		
+		</script>
+		<link rel="stylesheet" href="style/header.css">
+        <link rel="stylesheet" href="style/welcome.css">
+
+
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+	</head>
+
+	<body style="background-color:black">
+		<div id="header"> 
+            <div id="headerTop">
+			        <img src="Images/logo.jpg" id=headerLogoImg onmouseover="resizeImage">
+			    <div>
+                    <img src="Images/coverPhoto.jpg" class="headerImgs" id="headerCoverImg">
+                </div>
+            </div>
+            <div id="navWrapper">
+                <div class="headerNav" >
+			    	<a href="#header" class="active navOp" onclick="replace('welcome')" ><span style="height: 300px;">Welcome</span></a>
+			    	<a href="#header" class="navOp" onclick="replace('register')">Register</a>
+			    	<a href="#header" class="navOp" onclick="replace('login')">Login</a>
+			    	<a href="#header" class="navOp" onclick="replace('about')">About</a>
+			    </div>
+			</div>
+        </div>
+		<div id=realWelcome style="display:block;text-align:center">
+            <div id="welcomeTitleWrapper">
+            <h1 style="background-color:white;margin-bottom:0px">Welcome To Pacman!</h1>
+
+            </div>
+            <div id="welcomewrapwrap">
+            <div id="welcomeRegisterWrappper">
+                <h1 id="welcomeRegisterText">Register</h1>
+                <img src="Images/coverPacman1.png" id="registerImg" onclick="replace('register')">
+            </div>
+            <div id="welcomeLoginWrapper">
+                <h1 id="welcomeLoginText">Login</h1>
+                 <img src="Images/coverPacman2.png" id="loginImg" onclick="replace('login')">
+            </div>
+        </div>
+        </div>
+		<div id = "game" style="display:block">
+			<div id="score">
+				<label for="lblScore">SCORE:</label>
+				<input id="lblScore" type="text" />
+			</div>
+			<div id="time">
+				<label for="lblTime">TIME:</label>
+				<input id="lblTime" type="text" />
+			</div>
+			<div id="game" style="text-align:center;">
+				<canvas id="canvas" height="600" width="1000px" style="background-color:grey;"></canvas>
+				<canvas id="canvass" height="600" width="1000px" style="background-color:grey;"></canvas>
+
+			</div>
+		</div>
+		<div id = "register" style="display:none;text-align:center" onclick = "replace('register')">
+			<form action="" id="myform">
+				<div class="container">
+                    <div id="registerTitle" style="background-color:white;margin:0px">
+				  <h1>💪<b><i> Let's Play! </i></b>💪</h1>
+				  <p style="padding-bottom:0px;">Please fill in this form to create an account.</p>
+                </div>
+
+					<td>
+					<p id="pass_error"></p>
+				</td>
+				</button>
+
+				</div>
+			</form>
+        </div>
+		</div>
+		<div id = "login" style="display:none;text-align:center" onclick = "replace('login')">
+			<h1>💪<b><i>Login</i></b>💪</h1>
+			<p>enter your username and password</p>
+			<hr> 
+			<label for="text"><b><i><p style="font-size:30px;margin-bottom:0px">User Name:</p></i></b></label>
+			<input type="text"  class="field" placeholder="Enter User Name" name="email" id="usernameLogin" style="font-size:20px;" required>
+			<label for="psw"><b><i><p style="font-size:30px;margin-bottom:0px">Password:</p></i></b></label>
+			<input type="password" class="field" placeholder="Enter Password" name="pswLogin" id="pswLogin" style="font-size:20px;" required>
+			<br>
+			<br>
+			<br>
+			<button type="submit" class="registerbtn" id="loginbtn" onclick="loginUser()"><b>Login</b>
+
+		</div>
+		<div id = "about" style="display:none" onclick = "replace('about')"></div>
+
+
+
+
+		<script>
+			$("#myform").validate();
+			</script>
+
+
+	</body>
+</html>

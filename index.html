@@ -4,25 +4,33 @@
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
 		<script type="text/javascript" src="./login.js"></script>
+		<script type="text/javascript" src="./game.js"></script>
 
+		<script>
+			const firstUser={username:"k",password:"k",fullname:"k",email:"k"};
+			const users=[firstUser]		
+		</script>
 		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="header.css">
+
 		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 	</head>
 
 	<body style="background-color:rgb(136, 89, 89);">
-		<div id="header" style="background-color:black;height:200px">
-			<img src="Images/logo.jpg" style="float:left;height:85%">
-			<div id="innerHeader" style="text-align:right;height:100%">
+		<div id="header">
+			<img src="Images/logo.jpg" id=headerImg style="float:left;height:85%;height:80%;">
+			<div id="innerHeader" style="text-align:right;height:80%;">
 			<img src="Images/coverPhoto.jpg" style="height:100%">
 			</div>
+			<div class="topnav" >
+				<a href="#header" class="active navOp" onclick="replace('welcome')" ><span style="height: 300px;">Welcome</span></a>
+				<a href="#header" class="navOp" onclick="replace('register')">Register</a>
+				<a href="#header" class="navOp" onclick="replace('login')">Login</a>
+				<a href="#header" class="navOp" onclick="replace('about')">About</a>
+			</div>
 		</div>
-		<div class="topnav">
-			<a href="#header" class="active navOp" onclick="replace('welcome')"><span style="height: 300px;">Welcome</span></a>
-			<a href="#header" class="navOp" onclick="replace('register')">Register</a>
-			<a href="#header" class="navOp" onclick="replace('login')">Login</a>
-			<a href="#header" class="navOp" onclick="replace('about')">About</a>
-		</div>
+
 		
 
 
@@ -46,6 +54,8 @@
 			</div>
 			<div id="game" style="text-align:center;">
 				<canvas id="canvas" height="600" width="1000px" style="background-color:grey;"></canvas>
+				<canvas id="canvass" height="600" width="1000px" style="background-color:grey;"></canvas>
+
 			</div>
 		</div>
 		<div id = "register" style="display:none;text-align:center" onclick = "replace('register')">

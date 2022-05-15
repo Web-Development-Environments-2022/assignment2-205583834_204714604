@@ -1,21 +1,22 @@
 var x = 2; 
+var first_time=true
 function loginUser(){
     let usernameValue=$("#usernameLogin").val();
 	let passwordValue=$("#pswLogin").val();
     let loginSection=document.getElementById("login");
-    let firstTime=true;
     var beforeWrongDetsHtml;
     var afterWrongDetsHtml;
-    if (firstTime){
+    if (first_time){
         beforeWrongDetsHtml=document.getElementById("login").innerHTML;
         afterWrongDetsHtml=beforeWrongDetsHtml+'<br><h1 style="color:red";>wrong details</h1>';
-        firstTime=false
+        first_time=false
     }
     for (let i = 0; i < users.length; i++) {
         let currUser=users[i];
         if (currUser.username==usernameValue){
             if(currUser.password==passwordValue){
                 alert("moving to game")
+                replace("welcome")
                 return //make replace to the game itself
 
 

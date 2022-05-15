@@ -6,13 +6,12 @@ var pac_color;
 var start_time;
 var time_elapsed;
 var interval;
-var users=[{username:"k",password:"k",fullname:"k",email:"k"}];
 var actor=new Image()
-actor.src="Images/actor1";
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
 	Start();
+	draw2();
 });
 
 function Start() {
@@ -245,8 +244,6 @@ function checkFields(){
   });
 };
 
-const firstUser={username:"k",password:"k",fullname:"k",email:"k"};
-
 function registerUser(){
 	let usernameValue=$("#username").val()
 	let passwordValue=$("#psw").val();
@@ -257,10 +254,20 @@ function registerUser(){
 	users.push(user)
 }
 
-
-
-
-
+function draw_pacman(ctx){
+	pac_radius=20;
+	pac_x=20;
+	pac_y=20;
+	ctx.beginPath();
+	ctx.arc(pac_x,pac_y,pac_radius,Math.PI*2,Math.PI*1.5);
+	ctx.fillStyle='yellow';
+	ctx.fill();
+	ctx.beginPath();
+	ctx.fill();
+	ctx.arc(pac_x+pac_radius*Math.sin(45)/2,pac_y-pac_radius*Math.sin(45)/2,3,0,Math.PI*2)
+	ctx.fillStyle='black'
+	ctx.fill();
 	
+}
 
 
