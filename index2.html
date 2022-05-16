@@ -12,20 +12,25 @@
 		</script>
 		<link rel="stylesheet" href="style/header.css">
         <link rel="stylesheet" href="style/welcome.css">
-
+		<link rel="stylesheet" href="style/general.css">
+		<link rel="stylesheet" href="style/register.css">
+		<link rel="stylesheet" href="style/login.css">
 
 		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-
 	</head>
 
-	<body style="background-color:black">
+	<body>
+		<div id="outerdiv"></div>
+		
 		<div id="header"> 
-            <div id="headerTop">
+			
+            <!-- <div id="headerTop">
 			        <img src="Images/logo.jpg" id=headerLogoImg onmouseover="resizeImage">
 			    <div>
                     <img src="Images/coverPhoto.jpg" class="headerImgs" id="headerCoverImg">
                 </div>
-            </div>
+            </div> -->
+
             <div id="navWrapper">
                 <div class="headerNav" >
 			    	<a href="#header" class="active navOp" onclick="replace('welcome')" ><span style="height: 300px;">Welcome</span></a>
@@ -35,6 +40,13 @@
 			    </div>
 			</div>
         </div>
+
+
+
+
+
+
+
 		<div id=realWelcome style="display:block;text-align:center">
             <div id="welcomeTitleWrapper">
             <h1 style="background-color:white;margin-bottom:0px">Welcome To Pacman!</h1>
