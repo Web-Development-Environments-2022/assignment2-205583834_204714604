@@ -187,6 +187,7 @@ function replace(show) {
 		document.getElementById("register").style.display="none";
 		document.getElementById("login").style.display="none";
 		document.getElementById("about").style.display="none";
+
 	}
 
 	if (show =="register")
