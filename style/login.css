@@ -1,6 +1,7 @@
 #login{
     display:none;
     text-align:left;
+    background-color: rgb(70, 70, 70);
 }
 
 #loginTitleDiv{
@@ -9,4 +10,16 @@
 
 #loginTitle{
     color: white;
+}
+
+#loginSubtitle{
+    color: white;
+    height: 380px;
+    padding: 0px;
+}
+
+.loginLabels{
+    font-size:30px;
+    margin-bottom:0px;
+    color: wheat;
 }
