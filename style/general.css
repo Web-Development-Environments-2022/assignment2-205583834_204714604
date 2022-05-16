@@ -1,4 +1,14 @@
-#outerdiv{
-    background-image: url("Images/IMG-186.jpg");
-    /* height: 300px; */
+#welcome{
+    background-color: rgb(171, 255, 171);
+    height: 100px;
+    height: auto;
+
+    
+}
+
+.welcomeImages{
+    height: 100px;
+    justify-content: space-between;
+    
+
 }

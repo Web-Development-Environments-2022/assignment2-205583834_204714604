@@ -1,17 +1,34 @@
 <html>
     <head>
 
+		<link rel="stylesheet" href="style/general.css">
+        <link rel="stylesheet" href="style/welcome_index3.css">
+        <link rel="stylesheet" href="style/header_index3.css">
+
+
     </head>
 
     <body>
-        <div id="outerdiv">
-            <div id="logodiv"></div>
-            <div id="nav"></div>
-            <div id="outerdiv">
-
-                
+            <div id="nav">
+                <ul>
+                    <li><a href="" onclick="replace('welcome')">Welcome</a></li>
+                    <li><a href="" onclick="replace('register')">Sign Up</a></li>
+                    <li><a href="" onclick="replace('login')">Login</a></li>
+                </ul>
             </div>
-        </div>
+            <div id="welcome">
+                <h1>Welcome  to PaCovid</h1>
+                <h2>Help Covico control the world</h2>
+                <div id="welcomeImagesWrapper">
+                    <img src="Images/login_welcome.png" class="welcomeImages" >
+                    <img src="Images/sign_up_welcome.png" class="welcomeImages" onclick="replace('login')">
+                </div>
+                <div>
+                    <p class="welcomeText">Sign Up</p>
+                    <p class="welcomeText">Login</p>
+                </div>
+
+            </div>
 
 
     </body>
