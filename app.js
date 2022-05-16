@@ -173,56 +173,55 @@ function UpdatePosition() {
 		Draw();
 	}
 }
-
-
-// function replace( hide, show ) {
-// 	document.getElementById(hide).style.display="none";
-// 	document.getElementById(show).style.display="block";
-//   }
   
 function replace(show) {
 	if (show =="welcome")
 	{
-		document.getElementById("realWelcome").style.display="block";
-		document.getElementById("register").style.display="none";
-		document.getElementById("login").style.display="none";
-		document.getElementById("about").style.display="none";
+		$("#realWelcome").show();
+		$("#register").hide();
+		$("#login").hide();
+		$("#about").hide();
+		$("#game").hide();
 	}
 
 	if (show =="register")
 	{
-		document.getElementById("realWelcome").style.display="none";
-		document.getElementById("register").style.display="block";
-		document.getElementById("login").style.display="none";
-		document.getElementById("about").style.display="none";
+		$("#realWelcome").hide();
+		$("#register").show();
+		$("#login").hide();
+		$("#about").hide();
+		$("#game").hide();
 	}
 
 	if (show =="login")
 	{
-		document.getElementById("realWelcome").style.display="none";
-		document.getElementById("register").style.display="none";
-		document.getElementById("login").style.display="block";
-		document.getElementById("about").style.display="none";
+		$("#realWelcome").hide();
+		$("#register").hide();
+		$("#login").show();
+		$("#about").hide();
+		$("#game").hide();
 	} 
 
 	if (show =="about")
 	{
-		document.getElementById("realWelcome").style.display="none";
-		document.getElementById("register").style.display="none";
-		document.getElementById("login").style.display="none";
-		document.getElementById("about").style.display="block";
+		$("#realWelcome").hide();
+		$("#register").hide();
+		$("#login").hide();
+		$("#about").show();
+		$("#game").hide();
+	} 
+
+	if (show =="game")
+	{
+		$("#realWelcome").hide();
+		$("#register").hide();
+		$("#login").hide();
+		$("#about").hide();
+		$("#game").show();
 	} 
 }
-  
-
-
 
 function checkFields(){
-//	originalOnload = window.onload;
-//window.onload = function() {
-//  if (originalOnload) {
-//    originalOnload();
-//  }
   // YOUR JQUERY
   var usernameValue=$("username").val()
   var passwordValue=$("#password").val();
