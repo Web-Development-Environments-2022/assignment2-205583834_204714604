@@ -7,15 +7,23 @@ var start_time;
 var time_elapsed;
 var interval;
 var actor=new Image()
+var food;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
 	Start();
-	draw2();
 });
 
 function Start() {
+	canvas.width=canvas.width;
+	console.log("start");
 	board = new Array();
+	food=new Image();
+	food.src='Images/medcine.png';
+	context.drawImage(food,20,20,20,20)
+	
+
+	//food=document.getElementById("food")
 	score = 0;
 	pac_color = "yellow";
 	var cnt = 100;

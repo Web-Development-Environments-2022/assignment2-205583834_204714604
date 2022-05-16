@@ -4,7 +4,7 @@
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<script type="text/javascript" src="./app.js"></script>
 		<script type="text/javascript" src="./login.js"></script>
-		<script type="text/javascript" src="./scripts/game.js"></script>
+		<!-- <script type="text/javascript" src="./scripts/game.js"></script> -->
 
 		<script>
 			const firstUser={username:"k",password:"k",fullname:"k",email:"k"};
@@ -33,7 +33,20 @@
 			</div>
         </div>
 
-		
+
+<!-- =========================================================== Welcome =========================================================== -->
+		<div id="welcome">
+			<h1>Welcome  to PaCovid</h1>
+			<h2>Help Covico control the world</h2>
+			<div id="welcomeImagesWrapper">
+				<img src="Images/login_welcome.png" class="welcomeImages" >
+				<img src="Images/sign_up_welcome.png" class="welcomeImages" onclick="replace('login')">
+			</div>
+			<div>
+				<p class="welcomeText">Sign Up</p>
+				<p class="welcomeText">Login</p>
+		</div>
+
 <!-- =========================================================== Register =========================================================== -->
 
 		<div id = "register" style="text-align:center" onclick = "replace('register')">
@@ -42,7 +55,7 @@
 						<h1>💪<b><i> Let's Play! </i></b>💪</h1>
 						<p>Please fill in this form to create an account.</p>
 						<hr> 
-						<label for="text"><b><i><p style="font-size:30px;margin-bottom:0px">User Name:</p></i></b></label>
+						<label for="text" class="regLabel"><b><i><p style="font-size:30px;margin-bottom:0px">User Name:</p></i></b></label>
 						<input type="text"  class="field" placeholder="Enter User Name" name="email" id="username" style="font-size:20px;" required>
 						<label for="psw"><b><i><p style="font-size:30px;margin-bottom:0px">Password:</p></i></b></label>
 						<input type="password" class="field" placeholder="Enter Password" name="psw" id="psw" style="font-size:20px;" required>
@@ -55,7 +68,7 @@
 						<br>
 						<br>
 						<br>
-						<button type="submit" class="registerbtn" onclick="registerUser()"><b>Register</b>
+						<button type="submit" class="registerbtn" onclick="registerUser()"><p id="registerbtntext"><b>Register</b></p>
 							<td>
 								<p id="pass_error"></p>
 							</td>
@@ -66,7 +79,7 @@
 
 <!-- =========================================================== Login =========================================================== -->
 
-		<div id = "login"	 onclick = "replace('login')">
+		<div id = "login"	 onclick = "replace('login')" style="display:none;">
 			<div id="loginTitleDiv">
 				<h1 id="loginTitle">💪<b><i>Login</i></b>💪</h1>
 				<p>enter your username and password</p>
@@ -93,7 +106,7 @@
 
 <!-- =========================================================== Game =========================================================== -->
 
-		<div id = "game" style="display:none">
+		<div id = "game">
 			<div id="score">
 				<label for="lblScore">SCORE:</label>
 				<input id="lblScore" type="text" />
@@ -103,7 +116,7 @@
 				<input id="lblTime" type="text" />
 			</div>
 			<div id="game" style="text-align:center;">
-				<canvas id="canvas" height="600" width="1000px" style="background-color:grey;"></canvas>
+				<canvas id="canvas" height="600" width="600px"></canvas>
 			</div>
 		</div>
 

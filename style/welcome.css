@@ -1,107 +1,39 @@
-#welcomeWrapper{
-    width: 100%;
-    background-color: blue;
-}
-
-
-
-#welcomeWrapper img{
-    height: 200px;
-    margin: 30px;
-    transition: width 2s, height 4s;
-    
-
-}
-
-#welcomeWrapper img:hover{
-    height: 400px;
-    transition: width 2s, height 4s;
-
-
-}
-
-td{
-    width: 30%;
-    height: 200px;
+#welcome{
+    margin: auto;
+    width: 80%;
     text-align: center;
+    display: block;
+    background-color: rgba(154, 231, 144,0.5);
 }
 
-.welcomebtns{
-    width:30%;
-    float:right;
-    border:1px solid;
-    border:solid 1px;
-    border-color:brown;
-    background-color:brown;
-    text-decoration:none;
-    height: 60px;
-    margin: 30px;
-    display:flexbox;
-    font-size: 40px;
-}
+#welcomeImagesWrapper{
+    display: flex;
+    justify-content: space-around;
+}   
 
-#welcomeRegisterWrappper{
-    margin-top: 20px;
-    width: 30%;
-    float: left;
-    font-size: xx-large;
-
-
-}
-
-#welcomeRegisterText{
-    color: rgb(255, 255, 255);
-    text-align: center;
-    font-size: xx-large;
-}
-
-#registerImg{
-    height: 200px;
-    
-
-}
-
-#registerImg:hover{
-    height: 250px;
+.welcomeImages{
     transition: width 2s, height 4s;
-}
+    border-radius: 50%;
 
-#welcomeRegisterText:hover{
-    color: wheat;
-    text-align: center;
-   
-}
-
-#welcomeLoginWrapper{
-    margin-top: 20px;
-    width: 30%;
-    float: right;
-    font-size: xx-large;
 
 
 }
 
-#welcomeLoginText{
-    color: rgb(255, 255, 255);
-    text-align: center;
-    font-size: xx-large;
-}
-
-#loginImg{
-    height: 200px;
-
-    
-
-}
-
-#loginImg:hover{
-    height: 250px;
+.welcomeImages:hover{
     transition: width 2s, height 4s;
+    height: 150px;
+    border: 1px solid;
 }
 
+#welcomeTextWrapper{
 
-#welcomewrapwrap{
-    background-color: rgb(70, 70, 70);
-    height: 380px;
-    padding: 0px;
+}
+
+.welcomeText{
+    display: inline;
+    justify-content: space-around;
+}
+
+p{
+    justify-content: space-around;
 }

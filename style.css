@@ -63,24 +63,9 @@ hr {
 }
 
 /* Set a style for the submit/register button */
-.registerbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  font-size: large;
-  cursor: pointer;
-  width: 15%;
-  text-align: center;
-  opacity: 0.9;
-  margin-top: 7px;
-  border-radius: 100px;
-}
 
-.registerbtn:hover {
-  opacity:1;
-}
+
+
 
 /* Add a blue text color to links */
 a {

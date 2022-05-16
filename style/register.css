@@ -1,5 +1,22 @@
-#register{
-    background-color: rgb(70, 70, 70);
-    height: 380PX;
+.registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    padding: 16px 20px;
+    width: 20%;
+    font-size: large;
+    cursor: pointer;
+    text-align: center;
+    opacity: 0.9;
+    margin-top: 7px;
+    border-radius: 100px;
+  }
 
-}
+  .registerbtn:hover {
+    opacity:1;
+  }
+
+  #registerbtntext{
+      margin: auto;
+  }

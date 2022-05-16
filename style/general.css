@@ -1,14 +1,12 @@
-#welcome{
-    background-color: rgb(171, 255, 171);
-    height: 100px;
-    height: auto;
 
-    
-}
 
 .welcomeImages{
     height: 100px;
     justify-content: space-between;
     
 
+}
+
+body{
+    background-image: url(/Images/IMG-0186.jpg);
 }
