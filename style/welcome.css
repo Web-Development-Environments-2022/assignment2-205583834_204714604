@@ -1,23 +1,19 @@
-#welcomeWrapper{
-    width: 100%;
-    background-color: blue;
+#welcome{
+    width: 80%;
+    background-color: bisque;
+    margin: auto;
+    height: 300px;
 }
-
-
 
 #welcomeWrapper img{
     height: 200px;
     margin: 30px;
     transition: width 2s, height 4s;
-    
-
 }
 
 #welcomeWrapper img:hover{
     height: 400px;
     transition: width 2s, height 4s;
-
-
 }
 
 td{
