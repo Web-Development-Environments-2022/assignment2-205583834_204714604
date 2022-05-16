@@ -1,0 +1,12 @@
+#login{
+    display:none;
+    text-align:left;
+}
+
+#loginTitleDiv{
+    text-align: center;
+}
+
+#loginTitle{
+    color: white;
+}
