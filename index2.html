@@ -4,7 +4,7 @@
 		<script src="./jquery-3.4.1.slim.min.js"></script>
 		<!-- <script type="text/javascript" src="./app.js"></script> -->
 		<script type="text/javascript" src="./login.js"></script>
-		<script type="text/javascript" src="./scripts/game.js"></script>
+		<script type="text/javascript" src="./game.js"></script>
 
 		<script>
 			const firstUser={username:"k",password:"k",fullname:"k",email:"k"};
@@ -43,7 +43,7 @@
 				<img src="Images/sign_up_welcome.png" class="welcomeImages" onclick="replace('login')">
 			</div>
 			<div>
-				<p class="welcomeText">Sign Up</p>
+				<p class="welcomeText">Sign gUp</p>
 				<p class="welcomeText">Login</p>
 		</div>
 
@@ -106,7 +106,7 @@
 
 <!-- =========================================================== Game =========================================================== -->
 
-		<div id = "game">
+		<!-- <div id = "game">
 			<div id="score">
 				<label for="lblScore">SCORE:</label>
 				<input id="lblScore" type="text" />
@@ -118,6 +118,28 @@
 			<div id="game" style="text-align:center;">
 				<canvas id="canvas" height="600" width="600px"></canvas>
 			</div>
+		</div> -->
+		<div id="game"></div>
+		<canvas id="canvas" height=	"600" width="900" style="background-color:grey"></canvas>
+		<div style="display:none;">
+			<img src="hero.png" id="hero">
+			<img src="Images/flags/flag1.gif" height="30" width="30">
+			<img src="Images/flags/flag2.gif" height="30" width="30">
+			<img src="Images/flags/flag3.gif" height="30" width="30">
+			<img src="Images/flags/flag4.gif" height="30" width="30">
+			<img src="Images/flags/flag5.gif" height="30" width="30">
+			<img src="Images/flags/flag6.gif" height="30" width="30">
+			<img src="Images/flags/flag7.gif" height="30" width="30">
+			<img src="Images/flags/flag8.gif" height="30" width="30">
+			<img src="Images/flags/flag9.gif" height="30" width="30">
+			<img src="Images/flags/flag10.gif" height="30" width="30">
+			<img src="Images/pacman/pacman.png" height="30" width="30">
+			<img src="Images/pacman/pacman2.png" height="30" width="30">
+			<img src="Images/pacman/pacman3.png" height="30" width="30">
+			<img src="Images/pacman/pacman4.png" height="30" width="30">
+			<img src="Images/pacman/pacman5.png" height="30" width="30">
+			<img src="Images/pacman/pacman6.png" height="30" width="30">
+			<img src="Images/wall.webp" height="30" width="30">
 		</div>
 
 <!-- ============================================================================================================================ -->
@@ -134,6 +156,5 @@
 		<img src="Images/pacman.JPG">
 
 
-	</div>
 	</body>
 </html>
