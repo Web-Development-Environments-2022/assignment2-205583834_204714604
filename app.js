@@ -8,6 +8,10 @@ var time_elapsed;
 var interval;
 var actor=new Image()
 var food;
+var foodImage;
+var wallImage;
+foodImage=new Image();
+
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -93,19 +97,20 @@ function findRandomEmptyCell(board) {
 }
 
 function GetKeyPressed() {
-	if (keysDown[38]) {
+	if (keysDown[38]) {//up
 		return 1;
 	}
-	if (keysDown[40]) {
+	if (keysDown[40]) {//down
 		return 2;
 	}
-	if (keysDown[37]) {
+	if (keysDown[37]) {//left
 		return 3;
 	}
-	if (keysDown[39]) {
+	if (keysDown[39]) {//right
 		return 4;
 	}
 }
+
 
 function Draw() {
 	canvas.width = canvas.width; //clean board
@@ -128,15 +133,50 @@ function Draw() {
 				context.fillStyle = "black"; //color
 				context.fill();
 			} else if (board[i][j] == 1) {
-				context.beginPath();
-				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle
-				context.fillStyle = "black"; //color
-				context.fill();
+				rand=Math.floor(Math.random()*10)
+                if ((rand)%10==0){
+                    foodImage.src="Images/flags/flag1.gif";
+                }
+                if (rand%10==1){
+                    foodImage.src="Images/flags/flag2.gif";
+
+                }
+
+                if (rand%10==2){
+                    foodImage.src="Images/flags/flag3.gif";
+
+                }
+
+                if (rand%10==3){
+                    foodImage.src="Images/flags/flag4.gif";
+
+                }
+
+                if (rand%10==4){
+                    foodImage.src="Images/flags/flag5.gif";
+
+                }
+
+                if (rand%10==5){
+                    foodImage.src="Images/flags/flag6.gif";
+
+                }
+
+                if (rand%10==6){
+                    foodImage.src="Images/flags/flag7.gif";
+                }
+
+                if (rand%10==7){
+                    foodImage.src="Images/flags/flag8.gif";
+                }
+
+                if (rand%10==8){foodImage.src="Images/flags/flag9.gif";}
+                if (rand%10==9){foodImage.src="Images/flags/flag10.gif";}
+				context.drawImage(foodImage,20,20,20,20)
 			} else if (board[i][j] == 4) {
-				context.beginPath();
-				context.rect(center.x - 30, center.y - 30, 60, 60);
-				context.fillStyle = "grey"; //color
-				context.fill();
+				wallImage=new Image();
+                wallImage.src="Images/wall.webp"
+				context.drawImage(wallImage,20,20,20,20)
 			}
 		}
 	}
@@ -181,7 +221,10 @@ function UpdatePosition() {
 		Draw();
 	}
 }
-  
+
+// ======================================================================================================================================================
+
+
 function replace(show) {
 	if (show =="welcome")
 	{
@@ -246,7 +289,6 @@ function checkFields(){
 			  required:true,
 			  minlength:6,
 		  }
-  
 	  }
   });
 };
@@ -273,8 +315,5 @@ function draw_pacman(ctx){
 	ctx.fill();
 	ctx.arc(pac_x+pac_radius*Math.sin(45)/2,pac_y-pac_radius*Math.sin(45)/2,3,0,Math.PI*2)
 	ctx.fillStyle='black'
-	ctx.fill();
-	
+	ctx.fill();	
 }
-
-
