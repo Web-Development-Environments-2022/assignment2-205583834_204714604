@@ -160,39 +160,38 @@ function changePosition() {
     Draw();
 }
 
-function getDirection(e) {
-    e = e || window.Event;
-    if (e.keyCode == '38') { return up; }
-    if (e.keyCode == '37') { return left; }
-    if (e.keyCode == '39') { return right; }
-    if (e.keyCode == '40') { return down; }
-}
+// function getDirection(e) {
+//     e = e || window.Event;
+//     if (e.keyCode == '38') { return up; }
+//     if (e.keyCode == '37') { return left; }
+//     if (e.keyCode == '39') { return right; }
+//     if (e.keyCode == '40') { return down; }
+// }
 
-function setKeys(upKeyCode, downKeyCode, leftKeyCode, rightKeyCode) {
-    upArrow = upKeyCode;
-    downArrow = downKeyCode;
-    leftArrow = leftKeyCode;
-    rightArrow = rightKeyCode;
-}
-
-function getKeyPressed() {
-    var up = sessionStorage.getItem("up");
-    var down = sessionStorage.getItem("down");
-    var right = sessionStorage.getItem("right");
-    var left = sessionStorage.getItem("left");
-    if (keysDown[up]) { return "up"; }
-    if (keysDown[down]) { return "down"; }
-    if (keysDown[left]) { return "left"; }
-    if (keysDown[right]) { return "right"; }
-}
+// function getKeyPressed() {
+//     var up = sessionStorage.getItem("up");
+//     var down = sessionStorage.getItem("down");
+//     var right = sessionStorage.getItem("right");
+//     var left = sessionStorage.getItem("left");
+//     if (keysDown[up]) { return "up"; }
+//     if (keysDown[down]) { return "down"; }
+//     if (keysDown[left]) { return "left"; }
+//     if (keysDown[right]) { return "right"; }
+// }
 
 function Draw() {
     canvas.width = canvas.width; //clean board
+    ctx.rect(0, 0, canvasWidth, canvasHeight);
+    ctx.fillStyle = "#b3e0ff";
+    ctx.fill();
     lblScore.value = score;
     lblTime.value = time_elapsed;
     for (var i = 0; i < 10; i++) {
         for (var j = 0; j < 10; j++) {
             if (board[i][j] == 2) { // Pacman
+                x_rand = Math.floor(Math.random() * 10) * 60;
+                y_rand = Math.floor(Math.random() * 10) * 40;
+                ctx.clearRect(x_rand, y_rand, 50, 40);
                 ctx.drawImage(pacmanImage, x_rand, y_rand, 50, 40);
 
             } else if (board[i][j] == 1) { // Food
@@ -208,7 +207,7 @@ function Draw() {
                 if (rand % 10 == 8) { foodImage.src = "Images/flags/flag9.gif"; }
                 if (rand % 10 == 9) { foodImage.src = "Images/flags/flag10.gif"; }
 
-                ctx.drawImage(foodImage, 20, 20, 20, 20)
+                ctx.drawImage(foodImage, 20, 20, 20, 20);
 
             } else if (board[i][j] == 4) { // Wall
                 ctx.beginPath();
