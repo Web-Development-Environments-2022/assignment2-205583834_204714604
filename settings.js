@@ -30,7 +30,7 @@ function setSettings(){
 }
 
 function setcolorchoice(points,country){
-    if (points='5'){
+    if (points=='5'){
         color5=new Image();
         color5choice=true;
         if(country=='france'){
@@ -50,7 +50,7 @@ function setcolorchoice(points,country){
         }
     }
 
-    if (points='15'){
+    if (points=='15'){
         color15=new Image();
         color15choice=true;
         if(country=='france'){
@@ -70,11 +70,11 @@ function setcolorchoice(points,country){
         }
     }
 
-    if (points='25'){
+    if (points=='25'){
         color25=new Image();
         color25choice=true;
         if(country=='france'){
-            colo25.src="Images/flags/france_flag.png";
+            color25.src="Images/flags/france_flag.png";
         }
         if(country=='india'){
             color25.src="Images/flags/india_flag.png";

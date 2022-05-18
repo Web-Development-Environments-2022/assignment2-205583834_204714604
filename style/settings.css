@@ -33,3 +33,9 @@
   .button25option{
       height: 40px;
   }
+
+  .flagimg::after{
+    border:solid 8px;
+    border-radius: 40px;
+
+  }
