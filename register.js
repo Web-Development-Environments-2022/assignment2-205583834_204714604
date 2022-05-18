@@ -41,6 +41,9 @@ function signup(){
     var username=$("#username").val();
     var password=$("#psw").val();
     map.set(username,password);
+    alert("User Created");
+    reset();
+    replace("login");
 
 }
 

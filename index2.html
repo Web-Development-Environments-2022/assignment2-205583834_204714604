@@ -185,69 +185,51 @@
 			</div> -->
       <canvas id="canvas" height="600" width="900" style="background-color: grey"></canvas>
     </div>
-  </div>
-  <div style="display: none">
-    <img src="hero.png" id="hero" />
-    <img src="Images/flags/flag1.gif" height="30" width="30" />
-    <img src="Images/flags/flag2.gif" height="30" width="30" />
-    <img src="Images/flags/flag3.gif" height="30" width="30" />
-    <img src="Images/flags/flag4.gif" height="30" width="30" />
-    <img src="Images/flags/flag5.gif" height="30" width="30" />
-    <img src="Images/flags/flag6.gif" height="30" width="30" />
-    <img src="Images/flags/flag7.gif" height="30" width="30" />
-    <img src="Images/flags/flag8.gif" height="30" width="30" />
-    <img src="Images/flags/flag9.gif" height="30" width="30" />
-    <img src="Images/flags/flag10.gif" height="30" width="30" />
-    <img src="Images/pacman/pacman.png" height="30" width="30" />
-    <img src="Images/pacman/pacman2.png" height="30" width="30" />
-    <img src="Images/pacman/pacman3.png" height="30" width="30" />
-    <img src="Images/pacman/pacman4.png" height="30" width="30" />
-    <img src="Images/pacman/pacman5.png" height="30" width="30" />
-    <img src="Images/pacman/pacman6.png" height="30" width="30" />
-    <img src="Images/wall.webp" height="30" width="30" />
-  </div>
-  <!-- ==================================Settings==================================================================================== -->
-  <div id="settings" style="display:none;">
-    <form action="" id="settingsform" onsubmit="return false">
+    <!-- ==================================Settings==================================================================================== -->
+	<div id="settings" style="display:none;">
+        <form action="" id="settingsform" onsubmit="return false">
+			<div class="settingslabelinputdiv">
+				<label id="upbtnlabel" class="settingslabel">Up Button:</label>
+				<input id="upbtninput" type="text" value="ArrowUp">
+			</div>
+			<div class="settingslabelinputdiv">
+				<label id="downbtnlabel" class="settingslabel">Down Button:</label>
+				<input id="downbtninput"  type="text" value="ArrowDown">
+			</div>
+			<div class="settingslabelinputdiv">
+				<label id="leftbtnlabel" class="settingslabel">Left Button:</label>
+				<input id="leftbtninput"  type="text" value="ArrowLeft">
+			</div>
+			<div class="settingslabelinputdiv">
+				<label id="rightbtnlabel" class="settingslabel">Right Button:</label>
+				<input id="rightbtninput"  type="text" value="ArrowRight">
+			</div>
+			<div  class="settingslabelinputdiv">
+				<label id="color5label">5 Points Ball Color:</label>
+				<input type="color" id="color5input" value="#a24141">
+			</div>
+			<div  class="settingslabelinputdiv">
+				<label id="color15label">15 Points Ball Color:</label>
+				<input type="color" id="color15input" value="#23abc7">
+			</div>
+			<div  class="settingslabelinputdiv">
+				<label id="color25label">25 Points Ball Color:</label>
+				<input type="color" id="color25input" value="#e7c798">
+			</div>	
+			<div class="settingslabelinputdiv">
+				<label id="ballnum">Number Of Balls:</label>
+				<input type="number" min="50" max="90">
+			</div>
+			<div class="settingslabelinputdiv">
+				<label id="ballnum">Number Of Monsters:</label>
+				<input type="number" min="1" max="4">
+			</div>
+			<div class="settingslabelinputdiv">
+				<label id="gametime">Game Time (min):</label>
+				<input type="number" min="60">
+			</div>
       <div class="settingslabelinputdiv">
-        <label id="upbtnlabel" class="settingslabel">Up Button:</label>
-        <input id="upbtninput" type="text" value="ArrowUp">
-      </div>
-      <div class="settingslabelinputdiv">
-        <label id="downbtnlabel" class="settingslabel">Down Button:</label>
-        <input id="downbtninput" type="text" value="ArrowDown">
-      </div>
-      <div class="settingslabelinputdiv">
-        <label id="leftbtnlabel" class="settingslabel">Left Button:</label>
-        <input id="leftbtninput" type="text" value="ArrowLeft">
-      </div>
-      <div class="settingslabelinputdiv">
-        <label id="rightbtnlabel" class="settingslabel">Right Button:</label>
-        <input id="rightbtninput" type="text" value="ArrowRight">
-      </div>
-      <div class="settingslabelinputdiv">
-        <label id="color5label">5 Points Ball Color:</label>
-        <input type="color" id="color5input" value="#a24141">
-      </div>
-      <div class="settingslabelinputdiv">
-        <label id="color15label">15 Points Ball Color:</label>
-        <input type="color" id="color15input" value="#23abc7">
-      </div>
-      <div class="settingslabelinputdiv">
-        <label id="color25label">25 Points Ball Color:</label>
-        <input type="color" id="color25input" value="#e7c798">
-      </div>
-      <div class="settingslabelinputdiv">
-        <label id="ballnum">Number Of Balls:</label>
-        <input type="number" min="50" max="90">
-      </div>
-      <div class="settingslabelinputdiv">
-        <label id="ballnum">Number Of Monsters:</label>
-        <input type="number" min="1" max="4">
-      </div>
-      <div class="settingslabelinputdiv">
-        <label id="gametime">Game Time (min):</label>
-        <input type="number" min="60">
+        <button onclick="replace('game')">Start Game</button>
       </div>
 
   </div>
