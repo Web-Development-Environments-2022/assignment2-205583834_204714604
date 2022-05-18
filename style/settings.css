@@ -1,0 +1,31 @@
+#content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  
+  #settings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  #settingsform{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .settingslabelinputdiv{
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 17px;
+    
+  
+  }
+  
+  .settingslabel{
+    margin-right: 20px;
+  }
