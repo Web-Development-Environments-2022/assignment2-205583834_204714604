@@ -3,7 +3,8 @@
     width: 80%;
     text-align: center;
     display: block;
-    background-color: rgba(252, 252, 252, 0.5);
+    /* background-color: rgba(252, 252, 252, 0.5); */
+    background-color: white;
 }
 
 #welcomeImagesWrapper{

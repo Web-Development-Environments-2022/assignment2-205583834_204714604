@@ -1,24 +1,35 @@
-#login{
-    display:none;
-    text-align:left;
-}
-
-#loginTitleDiv{
+#content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }  
+  
+  #login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-}
+  }
+  
+  #loginform{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .loginFieldDiv{
+    display: inline-flex;
+    justify-content: space-between;
+    margin: 17px;
+    
+  
+  }
+  
+  .loginlabel{
+    margin-right: 20px;
+  }
 
-#loginTitle{
-    color: white;
-}
+  .btnwrap{
+    justify-content: space-around;
 
-#loginSubtitle{
-    color: white;
-    height: 380px;
-    padding: 0px;
-}
 
-.loginLabels{
-    font-size:30px;
-    margin-bottom:0px;
-    color: wheat;
-}
+  }
