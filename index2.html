@@ -1,32 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="style/header.css" />
-    <link rel="stylesheet" href="style/welcome.css" />
-    <link rel="stylesheet" href="style/general.css" />
-    <link rel="stylesheet" href="style/register.css" />
-    <link rel="stylesheet" href="style/login.css" />
+
+<head>
+  <link rel="stylesheet" href="style/header.css" />
+  <link rel="stylesheet" href="style/welcome.css" />
+  <link rel="stylesheet" href="style/general.css" />
+  <link rel="stylesheet" href="style/register.css" />
+  <link rel="stylesheet" href="style/login.css" />
 
 
-    <script src="./jquery-3.4.1.slim.min.js"></script>
-	<script type="text/javascript" src="./controller.js"></script>
-    <script type="text/javascript" src="./app.js"></script>
-    <!-- <script>
-      const firstUser = {
-        username: "k",
-        password: "k",
-        fullname: "k",
-        email: "k",
-      };
-      const users = [firstUser];
-    </script> -->
+  <script src="./jquery-3.4.1.slim.min.js"></script>
+  <script type="text/javascript" src="./controller.js"></script>
+  <script type="text/javascript" src="./game.js"></script>
+  <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
+</head>
 
-
-    <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
-  </head>
-
-  <body>
-    <!-- <div id=""></div>
+<body>
+  <!-- <div id=""></div>
 		<div id="header"> 
             <div id="navWrapper">
                 <div class="headerNav" >
@@ -37,58 +27,54 @@
 			    </div>
 			</div>
         </div> -->
-    <header>
-      <div id="header-right" class="header-item">
-        <div class="logo">
-          <img src="Images/PaCovidLogo.png" id="coverImage" />
-        </div>
+  <header>
+    <div id="header-right" class="header-item">
+      <div class="logo">
+        <img src="Images/PaCovidLogo.png" id="coverImage" />
       </div>
-      <div id="header-left" class="header-item">
-        <h2>Snir Gaaton & Daniel Deri</h2>
+    </div>
+    <div id="header-left" class="header-item">
+      <h2>Snir Gaaton & Daniel Deri</h2>
+    </div>
+  </header>
+
+  <nav id="menu">
+    <a href="#" onclick="replace('welcome')" class="link">
+      <div class="title">Welcome</div>
+      <div class="bar"></div>
+    </a>
+    <a href="#" onclick="replace('register')" class="link">
+      <div class="title">Sign Up</div>
+      <div class="bar"></div>
+    </a>
+    <a href="#" onclick="replace('login')" class="link">
+      <div class="title">Login</div>
+      <div class="bar"></div>
+    </a>
+
+    <a href="#" onclick="replace('about')" class="link">
+      <div class="title">About</div>
+      <div class="bar"></div>
+    </a>
+  </nav>
+
+  <div id="content">
+    <!-- =========================================================== Welcome =========================================================== -->
+    <div id="welcome">
+      <h1>Welcome to PaCovid</h1>
+      <h2>Help Covico control the world</h2>
+      <div id="welcomeImagesWrapper">
+        <img src="Images/login_welcome.png" class="welcomeImages" />
+        <img src="Images/sign_up_welcome.png" class="welcomeImages" onclick="replace('login')" />
       </div>
-    </header>
-
-    <nav id="menu">
-      <a href="#" onclick="replace('welcome')" class="link">
-        <div class="title">Welcome</div>
-        <div class="bar"></div>
-      </a>
-      <a href="#" onclick="replace('register')" class="link">
-        <div class="title">Sign Up</div>
-        <div class="bar"></div>
-      </a>
-      <a href="#" onclick="replace('login')" class="link">
-        <div class="title">Login</div>
-        <div class="bar"></div>
-      </a>
-
-      <a href="#" onclick="replace('about')" class="link">
-        <div class="title">About</div>
-        <div class="bar"></div>
-      </a>
-    </nav>
-
-    <div id="content">
-      <!-- =========================================================== Welcome =========================================================== -->
-      <div id="welcome">
-        <h1>Welcome to PaCovid</h1>
-        <h2>Help Covico control the world</h2>
-        <div id="welcomeImagesWrapper">
-          <img src="Images/login_welcome.png" class="welcomeImages" />
-          <img
-            src="Images/sign_up_welcome.png"
-            class="welcomeImages"
-            onclick="replace('login')"
-          />
-        </div>
-        <div>
-          <p class="welcomeText">Sign gUp</p>
-          <p class="welcomeText">Login</p>
-        </div>
+      <div>
+        <p class="welcomeText">Sign gUp</p>
+        <p class="welcomeText">Login</p>
       </div>
+    </div>
 
-      <!-- =========================================================== Register =========================================================== -->
-      <!-- 
+    <!-- =========================================================== Register =========================================================== -->
+    <!-- 
 		<div id = "register" style="text-align:center" onclick = "replace('register')">
 				<form action="" id="myform">
 					<div class="container">
@@ -116,92 +102,77 @@
 					</div>
 				</form>
         </div> -->
-      <div id="register" style="display: none">
-        <form action="" id="registerform" onsubmit="return false">
-          <div class="registerFieldDiv">
-            <label for="text" class="regLabel"><p>User Name:</p></label>
-            <input
-              type="text"
-              class="field"
-              placeholder="Enter User Name"
-              name="email"
-              id="username"
-            />
-          </div>
-          <div class="registerFieldDiv">
-            <label for="psw" class="regLabel"><p>Password:</p></label>
-            <input
-              type="password"
-              class="field"
-              placeholder="Enter Password"
-              name="psw"
-              id="psw"
-            />
-          </div>
-          <div class="registerFieldDiv">
-            <label for="fullname" class="regLabel"><p>Full Name:</p></label>
-            <input
-              type="text"
-              class="field"
-              placeholder="Enter Full Name"
-              name="fullname"
-              id="fullname"
-            />
-          </div>
-          <div class="registerFieldDiv">
-            <label for="email" class="regLabel"><p>Email:</p></label>
-            <input
-              type="text"
-              placeholder="Enter Email"
-              name="email"
-              id="email"
-            />
-          </div>
-          <div class="registerFieldDiv">
-            <label for="date" class="regLabel"><p>Date:</p></label>
-            <input
-              type="date"
-              placeholder="Enter Date"
-              name="date"
-              id="date"
-              style="font-size: 20px; color: grey"
-            />
-          </div>
-          <div class="registerFieldDiv">
-            <button type="submit" class="registerbtn button-28" onclick="signup()">
-              Register
-            </button>
-            <button type="reset" onclick="reset()" class="registerbtn button-28">Reset</button>
-          </div>
-        </form>
-      </div>
-
-      <!-- =========================================================== Login =========================================================== -->
-      <div id="login" style="display: none">
-		<form action="" id="loginform" onsubmit="return false">
-			<div class="registerFieldDiv">
-			  <label for="text" class="loginlabel"><p>User Name:</p></label>
-			  <input type="text" class="field" placeholder="Enter User Name" name="email" id="loginusername"/>
-			</div>
-			<div class="registerFieldDiv">
-			  <label for="psw" class="loginlabel"><p>Password:</p></label>
-			  <input type="password" class="field" placeholder="Enter Password" name="psw" id="loginpsw">
-			</div>
-      <div class="btnwrap">
-			<button type="submit" class="loginbtn button-28" onclick="login()">Login </button>
-	    </div>
+    <div id="register" style="display: none">
+      <form action="" id="registerform" onsubmit="return false">
+        <div class="registerFieldDiv">
+          <label for="text" class="regLabel">
+            <p>User Name:</p>
+          </label>
+          <input type="text" class="field" placeholder="Enter User Name" name="email" id="username" />
+        </div>
+        <div class="registerFieldDiv">
+          <label for="psw" class="regLabel">
+            <p>Password:</p>
+          </label>
+          <input type="password" class="field" placeholder="Enter Password" name="psw" id="psw" />
+        </div>
+        <div class="registerFieldDiv">
+          <label for="fullname" class="regLabel">
+            <p>Full Name:</p>
+          </label>
+          <input type="text" class="field" placeholder="Enter Full Name" name="fullname" id="fullname" />
+        </div>
+        <div class="registerFieldDiv">
+          <label for="email" class="regLabel">
+            <p>Email:</p>
+          </label>
+          <input type="text" placeholder="Enter Email" name="email" id="email" />
+        </div>
+        <div class="registerFieldDiv">
+          <label for="date" class="regLabel">
+            <p>Date:</p>
+          </label>
+          <input type="date" placeholder="Enter Date" name="date" id="date" style="font-size: 20px; color: grey" />
+        </div>
+        <div class="registerFieldDiv">
+          <button type="submit" class="registerbtn button-28" onclick="signup()">
+            Register
+          </button>
+          <button type="reset" onclick="reset()" class="registerbtn button-28">Reset</button>
+        </div>
+      </form>
     </div>
 
-      <!-- =========================================================== About =========================================================== -->
+    <!-- =========================================================== Login =========================================================== -->
+    <div id="login" style="display: none">
+      <form action="" id="loginform" onsubmit="return false">
+        <div class="registerFieldDiv">
+          <label for="text" class="loginlabel">
+            <p>User Name:</p>
+          </label>
+          <input type="text" class="field" placeholder="Enter User Name" name="email" id="loginusername" />
+        </div>
+        <div class="registerFieldDiv">
+          <label for="psw" class="loginlabel">
+            <p>Password:</p>
+          </label>
+          <input type="password" class="field" placeholder="Enter Password" name="psw" id="loginpsw">
+        </div>
+        <div class="btnwrap">
+          <button type="submit" class="loginbtn button-28" onclick="login()">Login </button>
+        </div>
+    </div>
 
-      <div id="about"></div>
-      <!-- <script>
+    <!-- =========================================================== About =========================================================== -->
+
+    <div id="about"></div>
+    <!-- <script>
 			$("#myform").validate();
 			</script> -->
 
-      <!-- =========================================================== Game =========================================================== -->
-      <div id="game" style="display: none">
-        <!-- <div id="score">
+    <!-- =========================================================== Game =========================================================== -->
+    <div id="game" style="display: none">
+      <!-- <div id="score">
 				<label for="lblScore">SCORE:</label>
 				<input id="lblScore" type="text" />
 			</div>
@@ -212,96 +183,92 @@
 			<div id="game" style="text-align:center;">
 				<canvas id="canvas" height="600" width="600px"></canvas>
 			</div> -->
-        <canvas
-          id="canvas"
-          height="600"
-          width="900"
-          style="background-color: grey"
-        ></canvas>
+      <canvas id="canvas" height="600" width="900" style="background-color: grey"></canvas>
+    </div>
+  </div>
+  <div style="display: none">
+    <img src="hero.png" id="hero" />
+    <img src="Images/flags/flag1.gif" height="30" width="30" />
+    <img src="Images/flags/flag2.gif" height="30" width="30" />
+    <img src="Images/flags/flag3.gif" height="30" width="30" />
+    <img src="Images/flags/flag4.gif" height="30" width="30" />
+    <img src="Images/flags/flag5.gif" height="30" width="30" />
+    <img src="Images/flags/flag6.gif" height="30" width="30" />
+    <img src="Images/flags/flag7.gif" height="30" width="30" />
+    <img src="Images/flags/flag8.gif" height="30" width="30" />
+    <img src="Images/flags/flag9.gif" height="30" width="30" />
+    <img src="Images/flags/flag10.gif" height="30" width="30" />
+    <img src="Images/pacman/pacman.png" height="30" width="30" />
+    <img src="Images/pacman/pacman2.png" height="30" width="30" />
+    <img src="Images/pacman/pacman3.png" height="30" width="30" />
+    <img src="Images/pacman/pacman4.png" height="30" width="30" />
+    <img src="Images/pacman/pacman5.png" height="30" width="30" />
+    <img src="Images/pacman/pacman6.png" height="30" width="30" />
+    <img src="Images/wall.webp" height="30" width="30" />
+  </div>
+  <!-- ==================================Settings==================================================================================== -->
+  <div id="settings" style="display:none;">
+    <form action="" id="settingsform" onsubmit="return false">
+      <div class="settingslabelinputdiv">
+        <label id="upbtnlabel" class="settingslabel">Up Button:</label>
+        <input id="upbtninput" type="text" value="ArrowUp">
       </div>
-    </div>
-    <div style="display: none">
-      <img src="hero.png" id="hero" />
-      <img src="Images/flags/flag1.gif" height="30" width="30" />
-      <img src="Images/flags/flag2.gif" height="30" width="30" />
-      <img src="Images/flags/flag3.gif" height="30" width="30" />
-      <img src="Images/flags/flag4.gif" height="30" width="30" />
-      <img src="Images/flags/flag5.gif" height="30" width="30" />
-      <img src="Images/flags/flag6.gif" height="30" width="30" />
-      <img src="Images/flags/flag7.gif" height="30" width="30" />
-      <img src="Images/flags/flag8.gif" height="30" width="30" />
-      <img src="Images/flags/flag9.gif" height="30" width="30" />
-      <img src="Images/flags/flag10.gif" height="30" width="30" />
-      <img src="Images/pacman/pacman.png" height="30" width="30" />
-      <img src="Images/pacman/pacman2.png" height="30" width="30" />
-      <img src="Images/pacman/pacman3.png" height="30" width="30" />
-      <img src="Images/pacman/pacman4.png" height="30" width="30" />
-      <img src="Images/pacman/pacman5.png" height="30" width="30" />
-      <img src="Images/pacman/pacman6.png" height="30" width="30" />
-      <img src="Images/wall.webp" height="30" width="30" />
-    </div>
-    <!-- ==================================Settings==================================================================================== -->
-	<div id="settings" style="display:none;">
-        <form action="" id="settingsform" onsubmit="return false">
-			<div class="settingslabelinputdiv">
-				<label id="upbtnlabel" class="settingslabel">Up Button:</label>
-				<input id="upbtninput" type="text" value="ArrowUp">
-			</div>
-			<div class="settingslabelinputdiv">
-				<label id="downbtnlabel" class="settingslabel">Down Button:</label>
-				<input id="downbtninput"  type="text" value="ArrowDown">
-			</div>
-			<div class="settingslabelinputdiv">
-				<label id="leftbtnlabel" class="settingslabel">Left Button:</label>
-				<input id="leftbtninput"  type="text" value="ArrowLeft">
-			</div>
-			<div class="settingslabelinputdiv">
-				<label id="rightbtnlabel" class="settingslabel">Right Button:</label>
-				<input id="rightbtninput"  type="text" value="ArrowRight">
-			</div>
-			<div  class="settingslabelinputdiv">
-				<label id="color5label">5 Points Ball Color:</label>
-				<input type="color" id="color5input" value="#a24141">
-			</div>
-			<div  class="settingslabelinputdiv">
-				<label id="color15label">15 Points Ball Color:</label>
-				<input type="color" id="color15input" value="#23abc7">
-			</div>
-			<div  class="settingslabelinputdiv">
-				<label id="color25label">25 Points Ball Color:</label>
-				<input type="color" id="color25input" value="#e7c798">
-			</div>	
-			<div class="settingslabelinputdiv">
-				<label id="ballnum">Number Of Balls:</label>
-				<input type="number" min="50" max="90">
-			</div>
-			<div class="settingslabelinputdiv">
-				<label id="ballnum">Number Of Monsters:</label>
-				<input type="number" min="1" max="4">
-			</div>
-			<div class="settingslabelinputdiv">
-				<label id="gametime">Game Time (min):</label>
-				<input type="number" min="60">
-			</div>
+      <div class="settingslabelinputdiv">
+        <label id="downbtnlabel" class="settingslabel">Down Button:</label>
+        <input id="downbtninput" type="text" value="ArrowDown">
+      </div>
+      <div class="settingslabelinputdiv">
+        <label id="leftbtnlabel" class="settingslabel">Left Button:</label>
+        <input id="leftbtninput" type="text" value="ArrowLeft">
+      </div>
+      <div class="settingslabelinputdiv">
+        <label id="rightbtnlabel" class="settingslabel">Right Button:</label>
+        <input id="rightbtninput" type="text" value="ArrowRight">
+      </div>
+      <div class="settingslabelinputdiv">
+        <label id="color5label">5 Points Ball Color:</label>
+        <input type="color" id="color5input" value="#a24141">
+      </div>
+      <div class="settingslabelinputdiv">
+        <label id="color15label">15 Points Ball Color:</label>
+        <input type="color" id="color15input" value="#23abc7">
+      </div>
+      <div class="settingslabelinputdiv">
+        <label id="color25label">25 Points Ball Color:</label>
+        <input type="color" id="color25input" value="#e7c798">
+      </div>
+      <div class="settingslabelinputdiv">
+        <label id="ballnum">Number Of Balls:</label>
+        <input type="number" min="50" max="90">
+      </div>
+      <div class="settingslabelinputdiv">
+        <label id="ballnum">Number Of Monsters:</label>
+        <input type="number" min="1" max="4">
+      </div>
+      <div class="settingslabelinputdiv">
+        <label id="gametime">Game Time (min):</label>
+        <input type="number" min="60">
+      </div>
 
-	</div>
+  </div>
 
-    <!-- ============================================================================================================================ -->
-    <div id="resources" style="display: none">
-      <img src="Images/flags/flag1.gif" />
-      <img src="Images/flags/flag2.gif" />
-      <img src="Images/flags/flag3.gif" />
-      <img src="Images/flags/flag4.gif" />
-      <img src="Images/flags/flag5.gif" />
-      <img src="Images/flags/flag6.gif" />
-      <img src="Images/flags/flag7.gif" />
-      <img src="Images/flags/flag8.gif" />
-      <img src="Images/flags/flag10.gif" />
-      <img src="Images/pacman.JPG" />
-    </div>
-  </body>
-  <script type="text/javascript" src="./register.js"></script>
-  <script type="text/javascript" src="./settings.js"></script>
-  <script type="text/javascript" src="./login.js"></script>
-  <script type="text/javascript" src="./game.js"></script>
+  <!-- ============================================================================================================================ -->
+  <div id="resources" style="display: none">
+    <img src="Images/flags/flag1.gif" />
+    <img src="Images/flags/flag2.gif" />
+    <img src="Images/flags/flag3.gif" />
+    <img src="Images/flags/flag4.gif" />
+    <img src="Images/flags/flag5.gif" />
+    <img src="Images/flags/flag6.gif" />
+    <img src="Images/flags/flag7.gif" />
+    <img src="Images/flags/flag8.gif" />
+    <img src="Images/flags/flag10.gif" />
+    <img src="Images/pacman.JPG" />
+  </div>
+</body>
+<script type="text/javascript" src="./register.js"></script>
+<script type="text/javascript" src="./settings.js"></script>
+<script type="text/javascript" src="./login.js"></script>
+<script type="text/javascript" src="./game.js"></script>
+
 </html>
