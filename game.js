@@ -9,32 +9,79 @@ var rightArrow;
 var wallImage;
 var board;
 var shape = new Object();
-
 keysDown = {};
 
 addEventListener("keydown", function (e) { keysDown[e.keyCode] = true; }, false);
 addEventListener("keyup", function (e) { delete keysDown[e.keyCode]; }, false);
 
-window.addEventListener("load", setupGame, false);
+//window.addEventListener("load", setupGame, false);
 
 
 function setupGame() {
-    board = new Array();
+    board=initboard();
     canvas = document.getElementById("canvas");
     ctx = canvas.getContext("2d");
     foodImage = new Image();
     foodImage.src = "Images/flags/flag1.gif";
     pacmanImage = new Image();
     pacmanImage.src = "Images/pacman/pacman2.png";
-    // ctx.drawImage(foodImage,0,0,30,30);
-    // ctx.drawImage(foodImage,60,0,30,30);
-    // ctx.drawImage(foodImage,120,0,30,30);
+    draw_balls();
     // ctx.drawImage(foodImage,160,0,30,30);
     // ctx.drawImage(foodImage,200,0,30,30);
     // ctx.drawImage(foodImage,0,0,30,30);
     // ctx.drawImage(foodImage,0,0,30,30);
-    interval = setInterval(changePosition, 250);
+    //interval = setInterval(changePosition, 250);
 }
+
+function initboard(){
+    board=new Array(20);
+    for (let i=0;i<20;i++){
+        board[i]=new Array(20);
+    }
+    return board;
+
+}
+
+function draw_balls(){
+    ball5num=Math.floor(0.6*ballNumber);
+    ball15num=Math.floor(0.3*ballNumber);
+    ball25num=Math.floor(0.1*ballNumber);
+    ball5num=ball15num+(ballNumber-ball5num-ball15num-ball25num);
+    let counter5=0;
+    let counter15=0;
+    let counter25=0;
+
+    while (counter5<ball5num){
+        rand_x=Math.floor(Math.random()*20);
+        rand_y=Math.floor(Math.random()*20);
+        if (board[rand_x][rand_y]==0){
+            board[rand_x][rand_y]=1;
+            ctx.drawImage(foodImage,rand_x*30,rand_y*30);
+            counter5++;
+        }
+    }
+
+    while (counter15<ball15num){
+        rand_x=Math.floor(Math.random()*20);
+        rand_y=Math.floor(Math.random()*20);
+        if (board[rand_x][rand_y]==0){
+            board[rand_x][rand_y]=1;
+            ctx.drawImage(foodImage,rand_x*30,rand_y*30);
+            counter5++;
+        }
+    }
+
+    while (counter25<ball25num){
+        rand_x=Math.floor(Math.random()*20);
+        rand_y=Math.floor(Math.random()*20);
+        if (board[rand_x][rand_y]==0){
+            board[rand_x][rand_y]=1;
+            ctx.drawImage(foodImage,rand_x*30,rand_y*30);
+            counter5++;
+        }
+    }
+}
+
 
 
 
@@ -160,28 +207,28 @@ function changePosition() {
     Draw();
 }
 
-// function getDirection(e) {
-//     e = e || window.Event;
-//     if (e.keyCode == '38') { return up; }
-//     if (e.keyCode == '37') { return left; }
-//     if (e.keyCode == '39') { return right; }
-//     if (e.keyCode == '40') { return down; }
-// }
+function getDirection(e) {
+    e = e || window.Event;
+    if (e.keyCode == '38') { return up; }
+    if (e.keyCode == '37') { return left; }
+    if (e.keyCode == '39') { return right; }
+    if (e.keyCode == '40') { return down; }
+}
 
-// function getKeyPressed() {
-//     var up = sessionStorage.getItem("up");
-//     var down = sessionStorage.getItem("down");
-//     var right = sessionStorage.getItem("right");
-//     var left = sessionStorage.getItem("left");
-//     if (keysDown[up]) { return "up"; }
-//     if (keysDown[down]) { return "down"; }
-//     if (keysDown[left]) { return "left"; }
-//     if (keysDown[right]) { return "right"; }
-// }
+function getKeyPressed() {
+    var up = sessionStorage.getItem("up");
+    var down = sessionStorage.getItem("down");
+    var right = sessionStorage.getItem("right");
+    var left = sessionStorage.getItem("left");
+    if (keysDown[up]) { return "up"; }
+    if (keysDown[down]) { return "down"; }
+    if (keysDown[left]) { return "left"; }
+    if (keysDown[right]) { return "right"; }
+}
 
 function Draw() {
     canvas.width = canvas.width; //clean board
-    ctx.rect(0, 0, canvasWidth, canvasHeight);
+    // ctx.rect(0, 0, canvasWidth, canvasHeight);
     ctx.fillStyle = "#b3e0ff";
     ctx.fill();
     lblScore.value = score;

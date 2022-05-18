@@ -184,7 +184,7 @@
 				<label for="lblTime">TIME:</label>
 				<input id="lblTime" type="text" />
 			</div>
-        <canvas id="canvas" height="600" width="900" style="background-color: grey"></canvas>
+        <canvas id="canvas" height="600" width="600" style="background-color: grey"></canvas>
 			</div>
     </div>
     <!-- ==================================Settings==================================================================================== -->
@@ -219,19 +219,19 @@
         <table>
           <tr>
             <td>
-              <img src="Images/flags/france_flag.png" class="button25option">
+              <img src="Images/flags/france_flag.png" class="button25option" onclick="setcolor5choice('25','france')">
             </td>
             <td>
-              <img src="Images/flags/india_flag.png" class="button25option">
+              <img src="Images/flags/india_flag.png"  onclick="setcolorchoice('25','india')" class="button25option">
             </td>
             <td>
-              <img src="Images/flags/brazil_flag.png" class="button25option">
+              <img src="Images/flags/brazil_flag.png"  onclick="setcolorchoice('25','brazil')" class="button25option">
             </td>
             <td>
-              <img src="Images/flags/italy_flag.png" class="button25option">
+              <img src="Images/flags/italy_flag.png"  onclick="setcolor5choice('25','italy')" class="button25option">
             </td>
             <td>
-              <img src="Images/flags/usa_flag.png" class="button25option">
+              <img src="Images/flags/usa_flag.png" onclick="setcolor5choice('25','italy')" class="button25option">
 
             </td>
 
@@ -245,7 +245,7 @@
 				<input type="number" min="50" max="90">
 			</div>
 			<div class="settingslabelinputdiv">
-				<label id="ballnum">Number Of Monsters:</label>
+				<label id="monstersnum">Number Of Monsters:</label>
 				<input type="number" min="1" max="4">
 			</div>
 			<div class="settingslabelinputdiv">
@@ -253,13 +253,14 @@
 				<input type="number" min="60">
 			</div>
       <div class="settingslabelinputdiv">
-        <button onclick="replace('game')">Start Game</button>
+        <button onclick="setSettings()">Start Game</button>
       </div>
-      <div id="time">
-        <label for="lblTime">TIME:</label>
-        <input id="lblTime" type="text" />
-      </div>
-      <div id="game" style="text-align:center;">
+
+      <div id="game" style="text-align:center;display:block">
+        <div id="time">
+          <label for="lblTime">TIME:</label>
+          <input id="lblTime" type="text" />
+        </div>
         <canvas id="canvas" height="600" width="600px"></canvas>
       </div>
     </div>
@@ -297,11 +298,11 @@
         </div>
         <div class="settingslabelinputdiv">
           <label id="ballnum">Number Of Balls:</label>
-          <input type="number" min="50" max="90">
+          <input id="ballnuminput" type="number" min="50" max="90">
         </div>
         <div class="settingslabelinputdiv">
-          <label id="ballnum">Number Of Monsters:</label>
-          <input type="number" min="1" max="4">
+          <label id="monsternum">Number Of Monsters:</label>
+          <input type="number" min="1" max="4" id="monsternuminput">
         </div>
         <div class="settingslabelinputdiv">
           <label id="gametime">Game Time (min):</label>
@@ -325,6 +326,7 @@
       <img src="Images/flags/flag8.gif" />
       <img src="Images/flags/flag10.gif" />
       <img src="Images/pacman.JPG" />
+      <img src="Images/pacman/pacman2.png">
     </div>
 </body>
 <script type="text/javascript" src="./register.js"></script>
