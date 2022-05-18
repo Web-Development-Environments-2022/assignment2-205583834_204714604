@@ -205,7 +205,7 @@
 			<div class="settingslabelinputdiv">
 				<label id="rightbtnlabel" class="settingslabel">Right Button:</label>
 				<input id="rightbtninput"  type="text" value="ArrowRight">
-			</div>
+			</div> 
 			<div  class="settingslabelinputdiv">
 				<label id="color5label">5 Points Ball Color:</label>
 				<input type="color" id="color5input" value="#a24141">
@@ -242,15 +242,15 @@
 			</div>	
 			<div class="settingslabelinputdiv">
 				<label id="ballnum">Number Of Balls:</label>
-				<input type="number" min="50" max="90">
+				<input type="number" min="50" max="90" id="ballnuminput">
 			</div>
 			<div class="settingslabelinputdiv">
 				<label id="monstersnum">Number Of Monsters:</label>
-				<input type="number" min="1" max="4">
+				<input type="number" min="1" max="4" id="monsternuminput">
 			</div>
 			<div class="settingslabelinputdiv">
 				<label id="gametime">Game Time (min):</label>
-				<input type="number" min="60">
+				<input type="number" min="60" id="gametimeinput">
 			</div>
       <div class="settingslabelinputdiv">
         <button onclick="setSettings()">Start Game</button>
@@ -266,7 +266,7 @@
     </div>
 
     <!-- ==================================Settings==================================================================================== -->
-    <div id="settings" style="display:none;">
+    <!-- <div id="settings" style="display:none;">
       <form action="" id="settingsform" onsubmit="return false">
         <div class="settingslabelinputdiv">
           <label id="upbtnlabel" class="settingslabel">Up Button:</label>
@@ -312,7 +312,7 @@
           <button onclick="replace('game')">Start Game</button>
         </div>
 
-    </div>
+    </div> -->
 
     <!-- ============================================================================================================================ -->
     <div id="resources" style="display: none">

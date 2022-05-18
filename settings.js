@@ -21,9 +21,9 @@ var color25choice=false;
 
 
 function setSettings(){
-    ballNumber=$("#ballnuminput").val();
-    monsterNumber=$("#monsternuminput").val();
-    time=$("#gametime").val();
+    ballNumber=Number($("#ballnuminput").val());
+    monsterNumber=Number($("#monsternuminput").val());
+    time=Number($("#gametimeinput").val());
     isSettingsSaved=true;
     replace("game");
     setupGame();

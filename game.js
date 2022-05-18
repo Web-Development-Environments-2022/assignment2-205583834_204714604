@@ -25,8 +25,8 @@ function setupGame() {
     foodImage.src = "Images/flags/flag1.gif";
     pacmanImage = new Image();
     pacmanImage.src = "Images/pacman/pacman2.png";
+    ctx.drawImage(foodImage,160,0,30,30);
     draw_balls();
-    // ctx.drawImage(foodImage,160,0,30,30);
     // ctx.drawImage(foodImage,200,0,30,30);
     // ctx.drawImage(foodImage,0,0,30,30);
     // ctx.drawImage(foodImage,0,0,30,30);
@@ -36,16 +36,20 @@ function setupGame() {
 function initboard(){
     board=new Array(20);
     for (let i=0;i<20;i++){
-        board[i]=new Array(20);
+        let inner_array=new Array();
+        for (let j=0;j<20;j++){
+            inner_array[j]=0;
+        }
+        board[i]=inner_array;
     }
     return board;
 
 }
 
 function draw_balls(){
-    ball5num=Math.floor(0.6*ballNumber);
-    ball15num=Math.floor(0.3*ballNumber);
-    ball25num=Math.floor(0.1*ballNumber);
+    var ball5num=Math.floor(0.6*ballNumber);
+    var ball15num=Math.floor(0.3*ballNumber);
+    var ball25num=Math.floor(0.1*ballNumber);
     ball5num=ball15num+(ballNumber-ball5num-ball15num-ball25num);
     let counter5=0;
     let counter15=0;
@@ -56,7 +60,7 @@ function draw_balls(){
         rand_y=Math.floor(Math.random()*20);
         if (board[rand_x][rand_y]==0){
             board[rand_x][rand_y]=1;
-            ctx.drawImage(foodImage,rand_x*30,rand_y*30);
+            ctx.drawImage(foodImage,rand_x*30,rand_y*30,100,100);
             counter5++;
         }
     }
