@@ -10,6 +10,8 @@ var wallImage;
 var board;
 var shape = new Object();
 keysDown = {};
+var pacman_x;
+var pacman_y;
 
 addEventListener("keydown", function (e) { keysDown[e.keyCode] = true; }, false);
 addEventListener("keyup", function (e) { delete keysDown[e.keyCode]; }, false);
@@ -24,6 +26,7 @@ function setupGame() {
     ctx = canvas.getContext("2d");
     pacmanImage = new Image();
     pacmanImage.src = "Images/pacman/pacman2.png";
+    draw_walls()
     draw_balls();
     
     draw_pacman();
@@ -90,6 +93,8 @@ function draw_pacman(){
     let find_position=false;
     let rand_x=Math.floor(Math.random()*20);
     let rand_y=Math.floor(Math.random()*20);
+    pacman_x=rand_x;
+    pacman_y=rand_y
     while (!find_position){
         if(board[rand_x][rand_y]==0){
             board[rand_x][rand_y]=2;
@@ -99,14 +104,83 @@ function draw_pacman(){
     }
 }
 
+function draw_walls(){
+    //----------Corners-----------
+    //chunk1
+    ctx.fillRect(1*30,1*30,30,30);
+    ctx.fillRect(1*30,2*30,30,30);
+    ctx.fillRect(1*30,3*30,30,30);
+    ctx.fillRect(2*30,1*30,30,30);
+    ctx.fillRect(3*30,1*30,30,30);
+    ctx.fillRect(4*30,1*30,30,30);
+    ctx.fillRect(5*30,1*30,30,30);
+    ctx.fillRect(1*30,1*30,30,30);
+    ctx.fillRect(2*30,1*30,30,30);
+    ctx.fillRect(3*30,1*30,30,30);
+    ctx.fillRect(1*30,2*30,30,30);
+    ctx.fillRect(1*30,3*30,30,30);
+    ctx.fillRect(1*30,4*30,30,30);
+    ctx.fillRect(1*30,5*30,30,30);
+    //chunk2
+    ctx.fillRect(18*30,18*30,30,30);
+    ctx.fillRect(18*30,17*30,30,30);
+    ctx.fillRect(18*30,16*30,30,30);
+    ctx.fillRect(17*30,18*30,30,30);
+    ctx.fillRect(16*30,18*30,30,30);
+    ctx.fillRect(15*30,18*30,30,30);
+    ctx.fillRect(14*30,18*30,30,30);
+    ctx.fillRect(18*30,18*30,30,30);
+    ctx.fillRect(17*30,18*30,30,30);
+    ctx.fillRect(16*30,18*30,30,30);
+    ctx.fillRect(18*30,17*30,30,30);
+    ctx.fillRect(18*30,16*30,30,30);
+    ctx.fillRect(18*30,15*30,30,30);
+    ctx.fillRect(18*30,14*30,30,30);
+    //chunk3
+    ctx.fillRect(1*30,18*30,30,30);
+    ctx.fillRect(1*30,17*30,30,30);
+    ctx.fillRect(1*30,16*30,30,30);
+    ctx.fillRect(2*30,18*30,30,30);
+    ctx.fillRect(3*30,18*30,30,30);
+    ctx.fillRect(4*30,18*30,30,30);
+    ctx.fillRect(5*30,18*30,30,30);
+    ctx.fillRect(1*30,18*30,30,30);
+    ctx.fillRect(2*30,18*30,30,30);
+    ctx.fillRect(3*30,18*30,30,30);
+    ctx.fillRect(1*30,17*30,30,30);
+    ctx.fillRect(1*30,16*30,30,30);
+    ctx.fillRect(1*30,15*30,30,30);
+    ctx.fillRect(1*30,14*30,30,30);
+    //chunk4
+    ctx.fillRect(18*30,1*30,30,30);
+    ctx.fillRect(18*30,2*30,30,30);
+    ctx.fillRect(18*30,3*30,30,30);
+    ctx.fillRect(17*30,1*30,30,30);
+    ctx.fillRect(16*30,1*30,30,30);
+    ctx.fillRect(15*30,1*30,30,30);
+    ctx.fillRect(14*30,1*30,30,30);
+    ctx.fillRect(18*30,1*30,30,30);
+    ctx.fillRect(17*30,1*30,30,30);
+    ctx.fillRect(16*30,1*30,30,30);
+    ctx.fillRect(18*30,2*30,30,30);
+    ctx.fillRect(18*30,3*30,30,30);
+    ctx.fillRect(18*30,4*30,30,30);
+    ctx.fillRect(18*30,5*30,30,30);
+
+    //--------Center-------------
+    //chunk5
+    
 
 
+
+
+}
 
 function changePosition() {
     var direction = getKeyPressed();
 
     if (pacmanImage.src = "Images/pacman/pacman.png") {
-        if (direction == "right" && shape.i < 9 && board[shape.i + 1][shape.j] != 4) {
+        if (direction == "right" && pacman_x < 9 && board[shape.i + 1][shape.j] != 4) {
             shape.i++;
             pacmanImage.src = "Images/pacman/pacman.png";
         }
@@ -276,7 +350,6 @@ function Draw() {
             } else if (board[i][j] == 4) { // Wall
                 ctx.beginPath();
                 ctx.rect(center.x - canvasCellRadius, center.y - canvasCellRadius, canvasCell, canvasCell);
-                ctx.fillStyle = "grey"; //color
                 ctx.fill();
                 // wallImage = new Image();
                 // wallImage.src = "Images/wall.webp"
