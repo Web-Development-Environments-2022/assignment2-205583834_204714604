@@ -22,6 +22,8 @@
     display: inline-flex;
     justify-content: space-between;
     margin: 17px;
+    display: inline-flex;
+
     
   
   }
@@ -34,8 +36,9 @@
       height: 40px;
   }
 
-  .flagimg::after{
-    border:solid 8px;
-    border-radius: 40px;
 
-  }
+
+  .flags input {
+    height: 40px;
+    display: none;
+}
