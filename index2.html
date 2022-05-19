@@ -189,7 +189,7 @@
     </div>
     <!-- ==================================Settings==================================================================================== -->
 	<div id="settings" style="display:none;">
-        <form action="" id="settingsform" onsubmit="return false">
+      <form action="" id="settingsform" onsubmit="return false">
 			<div class="settingslabelinputdiv">
 				<label id="upbtnlabel" class="settingslabel">Up Button:</label>
 				<input id="upbtninput" type="text" value="ArrowUp">
@@ -208,71 +208,27 @@
 			</div> 
 			<div  class="settingslabelinputdiv">
 				<label id="color5label">5 Points Ball Color:</label>
-        <img src="Images/flags/france_flag.png" class="button25option" onclick="setcolorchoice('5','france')" class="flagimg">
-      </td>
-      <td>
-        <img src="Images/flags/india_flag.png"  onclick="setcolorchoice('5','india')" class="button25option flagimg">
-      </td>
-      <td>
-        <img src="Images/flags/brazil_flag.png"  onclick="setcolorchoice('5','brazil')" class="button25option flagimg">
-      </td>
-      <td>
-        <img src="Images/flags/italy_flag.png"  onclick="setcolorchoice('5','italy')" class="button25option flagimg" >
-      </td>
-      <td>
-        <img src="Images/flags/usa_flag.png" onclick="setcolorchoice('5','italy')" class="button25option flagimg">
-
-      </td>
-    </tr>
-  </table>
+        <input type="image" id="france_flag_5" class="button25option flags" onclick="setcolorchoice('5','france')" src="/Images/flags/france_flag.png">
+        <input type="image" id="brazil_flag_5" class="button25option flags" onclick="setcolorchoice('5','brazil')" src="/Images/flags/brazil_flag.png">
+        <input type="image" id="india_flag_5" class="button25option flags" onclick="setcolorchoice('5','india')" src="/Images/flags/india_flag.png">
+        <input type="image" id="italy_flag_5" class="button25option flags" onclick="setcolorchoice('5','italy')" src="/Images/flags/italy_flag.png">
+        <input type="image" id="usa_flag_5" class="button25option flags"  onclick="setcolorchoice('5','usa')" src="/Images/flags/usa_flag.png">
 			</div>
 			<div  class="settingslabelinputdiv">
 				<label id="color15label">15 Points Ball Color:</label>
-        <table>
-          <tr>
-            <td>
-              <img src="Images/flags/france_flag.png" class="button25option" onclick="setcolorchoice('25','france')" class="flagimg">
-            </td>
-            <td>
-              <img src="Images/flags/india_flag.png"  onclick="setcolorchoice('15','india')" class="button25option flagimg">
-            </td>
-            <td>
-              <img src="Images/flags/brazil_flag.png"  onclick="setcolorchoice('15','brazil')" class="button25option flagimg">
-            </td>
-            <td>
-              <img src="Images/flags/italy_flag.png"  onclick="setcolorchoice('15','italy')" class="button25option flagimg" >
-            </td>
-            <td>
-              <img src="Images/flags/usa_flag.png" onclick="setcolorchoice('15','italy')" class="button25option flagimg">
-
-            </td>
-          </tr>
-        </table>
+        <input type="image" id="france_flag_15" class="button25option flags" onclick="setcolorchoice('15','france')" src="/Images/flags/france_flag.png">
+        <input type="image" id="brazil_flag_15" class="button25option flags" onclick="setcolorchoice('15','brazil')" src="/Images/flags/brazil_flag.png">
+        <input type="image" id="india_flag_15" class="button25option flags" onclick="setcolorchoice('15','india')" src="/Images/flags/india_flag.png">
+        <input type="image" id="italy_flag_15" class="button25option flags" onclick="setcolorchoice('15','italy')" src="/Images/flags/italy_flag.png">
+        <input type="image" id="usa_flag_15" class="button25option flags"  onclick="setcolorchoice('15','usa')" src="/Images/flags/usa_flag.png">
       </div>
 			<div  class="settingslabelinputdiv">
 				<label id="color25label">25 Points Ball Color:</label>
-        <table>
-          <tr>
-            <td>
-              <img src="Images/flags/france_flag.png" class="button25option" onclick="setcolorchoice('25','france')">
-            </td>
-            <td>
-              <img src="Images/flags/india_flag.png"  onclick="setcolorchoice('25','india')" class="button25option flagimg">
-            </td>
-            <td>
-              <img src="Images/flags/brazil_flag.png"  onclick="setcolorchoice('25','brazil')" class="button25option flagimg">
-            </td>
-            <td>
-              <img src="Images/flags/italy_flag.png"  onclick="setcolorchoice('25','italy')" class="button25option flagimg">
-            </td>
-            <td>
-              <img src="Images/flags/usa_flag.png" onclick="setcolorchoice('25','italy')" class="button25option flagimg">
-
-            </td>
-
-            
-          </tr>
-        </table>
+        <input type="image" id="france_flag_25" class="button25option flags" onclick="setcolorchoice('25','france')" src="/Images/flags/france_flag.png">
+        <input type="image" id="brazil_flag_25" class="button25option flags" onclick="setcolorchoice('25','brazil')" src="/Images/flags/brazil_flag.png">
+        <input type="image" id="india_flag_25" class="button25option flags" onclick="setcolorchoice('25','india')" src="/Images/flags/india_flag.png">
+        <input type="image" id="italy_flag_25" class="button25option flags" onclick="setcolorchoice('25','italy')" src="/Images/flags/italy_flag.png">
+        <input type="image" id="usa_flag_25" class="button25option flags"  onclick="setcolorchoice('25','usa')" src="/Images/flags/usa_flag.png">
 
 			</div>	
 			<div class="settingslabelinputdiv">
@@ -290,7 +246,8 @@
       <div class="settingslabelinputdiv">
         <button onclick="setSettings()">Start Game</button>
       </div>
-
+    </form>
+      
       <div id="game" style="text-align:center;display:block">
         <div id="time">
           <label for="lblTime">TIME:</label>
