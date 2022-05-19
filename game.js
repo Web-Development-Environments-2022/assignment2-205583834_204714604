@@ -18,14 +18,14 @@ addEventListener("keyup", function (e) { delete keysDown[e.keyCode]; }, false);
 
 
 function setupGame() {
-    board=initboard();
+    board = initboard();
     canvas = document.getElementById("canvas");
-    canvas.width=canvas.width;
+    canvas.width = canvas.width;
     ctx = canvas.getContext("2d");
     pacmanImage = new Image();
     pacmanImage.src = "Images/pacman/pacman2.png";
     draw_balls();
-    
+
     draw_pacman();
     // ctx.drawImage(foodImage,200,0,30,30);
     // ctx.drawImage(foodImage,0,0,30,30);
@@ -33,68 +33,69 @@ function setupGame() {
     //interval = setInterval(changePosition, 250);
 }
 
-function initboard(){
-    board=new Array(20);
-    for (let i=0;i<20;i++){
-        let inner_array=new Array();
-        for (let j=0;j<20;j++){
-            inner_array[j]=0;
+function initboard() {
+    board = new Array(20);
+    for (let i = 0; i < 20; i++) {
+        let inner_array = new Array();
+        for (let j = 0; j < 20; j++) {
+            inner_array[j] = 0;
         }
-        board[i]=inner_array;
+        board[i] = inner_array;
     }
     return board;
 
 }
 
-function draw_balls(){
+function draw_balls() {
     //clearRect();
-    var ball5num=Math.floor(0.6*ballNumber);
-    var ball15num=Math.floor(0.3*ballNumber);
-    var ball25num=Math.floor(0.1*ballNumber);
-    let counter5=0;
-    let counter15=0;
-    let counter25=0;
+    var ball5num = Math.floor(0.6 * ballNumber);
+    var ball15num = Math.floor(0.3 * ballNumber);
+    var ball25num = Math.floor(0.1 * ballNumber);
+    ball5num = ball5num + (ballNumber - ball15num - ball25num - ball5num);
+    let counter5 = 0;
+    let counter15 = 0;
+    let counter25 = 0;
 
-    while (counter5<ball5num){
-        rand_x=Math.floor(Math.random()*20);
-        rand_y=Math.floor(Math.random()*20);
-        if (board[rand_x][rand_y]==0){
-            board[rand_x][rand_y]=1;
-            ctx.drawImage(color5,rand_x*30,rand_y*30,25,25);
+    while (counter5 < ball5num) {
+        rand_x = Math.floor(Math.random() * 20);
+        rand_y = Math.floor(Math.random() * 20);
+        if (board[rand_x][rand_y] == 0) {
+            board[rand_x][rand_y] = 1;
+            ctx.drawImage(color5, rand_x * 30, rand_y * 30, 25, 25);
             counter5++;
         }
     }
 
-    while (counter15<ball15num){
-        rand_x=Math.floor(Math.random()*20);
-        rand_y=Math.floor(Math.random()*20);
-        if (board[rand_x][rand_y]==0){
-            board[rand_x][rand_y]=1;
-            ctx.drawImage(color15,rand_x*30,rand_y*30,25,25);
+    while (counter15 < ball15num) {
+        rand_x = Math.floor(Math.random() * 20);
+        rand_y = Math.floor(Math.random() * 20);
+        if (board[rand_x][rand_y] == 0) {
+            board[rand_x][rand_y] = 1;
+            ctx.drawImage(color15, rand_x * 30, rand_y * 30, 25, 25);
             counter15++;
         }
     }
 
-    while (counter25<ball25num){
-        rand_x=Math.floor(Math.random()*20);
-        rand_y=Math.floor(Math.random()*20);
-        if (board[rand_x][rand_y]==0){
-            board[rand_x][rand_y]=1;
-            ctx.drawImage(color25,rand_x*30,rand_y*30,25,25);
+    while (counter25 < ball25num) {
+        rand_x = Math.floor(Math.random() * 20);
+        rand_y = Math.floor(Math.random() * 20);
+        if (board[rand_x][rand_y] == 0) {
+            board[rand_x][rand_y] = 1;
+            ctx.drawImage(color25, rand_x * 30, rand_y * 30, 25, 25);
             counter25++;
         }
     }
 }
 
-function draw_pacman(){
-    let find_position=false;
-    let rand_x=Math.floor(Math.random()*20);
-    let rand_y=Math.floor(Math.random()*20);
-    while (!find_position){
-        if(board[rand_x][rand_y]==0){
-            board[rand_x][rand_y]=2;
-            ctx.drawImage(pacmanImage,rand_x*30,rand_y*30,30,30);
-            find_position=true;
+function draw_pacman() {
+    let find_position = false;
+    let rand_x = Math.floor(Math.random() * 20);
+    let rand_y = Math.floor(Math.random() * 20);
+    while (!find_position) {
+        if (board[rand_x][rand_y] == 0) {
+            board[rand_x][rand_y] = 2;
+            ctx.drawImage(pacmanImage, rand_x * 30, rand_y * 30, 30, 30);
+            find_position = true;
         }
     }
 }
