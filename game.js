@@ -20,10 +20,13 @@ addEventListener("keyup", function (e) { delete keysDown[e.keyCode]; }, false);
 function setupGame() {
     board=initboard();
     canvas = document.getElementById("canvas");
+    canvas.width=canvas.width;
     ctx = canvas.getContext("2d");
     pacmanImage = new Image();
     pacmanImage.src = "Images/pacman/pacman2.png";
     draw_balls();
+    
+    draw_pacman();
     // ctx.drawImage(foodImage,200,0,30,30);
     // ctx.drawImage(foodImage,0,0,30,30);
     // ctx.drawImage(foodImage,0,0,30,30);
@@ -57,7 +60,7 @@ function draw_balls(){
         rand_y=Math.floor(Math.random()*20);
         if (board[rand_x][rand_y]==0){
             board[rand_x][rand_y]=1;
-            ctx.drawImage(color5,rand_x*30,rand_y*30,30,30);
+            ctx.drawImage(color5,rand_x*30,rand_y*30,25,25);
             counter5++;
         }
     }
@@ -67,7 +70,7 @@ function draw_balls(){
         rand_y=Math.floor(Math.random()*20);
         if (board[rand_x][rand_y]==0){
             board[rand_x][rand_y]=1;
-            ctx.drawImage(color15,rand_x*30,rand_y*30,30,30);
+            ctx.drawImage(color15,rand_x*30,rand_y*30,25,25);
             counter15++;
         }
     }
@@ -77,8 +80,21 @@ function draw_balls(){
         rand_y=Math.floor(Math.random()*20);
         if (board[rand_x][rand_y]==0){
             board[rand_x][rand_y]=1;
-            ctx.drawImage(color25,rand_x*30,rand_y*30,30,30);
+            ctx.drawImage(color25,rand_x*30,rand_y*30,25,25);
             counter25++;
+        }
+    }
+}
+
+function draw_pacman(){
+    let find_position=false;
+    let rand_x=Math.floor(Math.random()*20);
+    let rand_y=Math.floor(Math.random()*20);
+    while (!find_position){
+        if(board[rand_x][rand_y]==0){
+            board[rand_x][rand_y]=2;
+            ctx.drawImage(pacmanImage,rand_x*30,rand_y*30,30,30);
+            find_position=true;
         }
     }
 }
