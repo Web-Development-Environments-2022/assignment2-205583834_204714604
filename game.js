@@ -170,11 +170,16 @@ function draw_walls(){
 
     //--------Center-------------
     //chunk5
+
+
+
+
+
+}
+
+function draw_monsters(){
+    //monster1
     
-
-
-
-
 }
 
 function changePosition() {
