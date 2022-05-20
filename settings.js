@@ -1,3 +1,5 @@
+import { setupGame } from "./game";
+
 var upButtonName;
 var downButtonName;
 var leftButtonName;
@@ -21,15 +23,65 @@ var color25choice=false;
 
 
 function setSettings(){
+
     ballNumber=Number($("#ballnuminput").val());
     monsterNumber=Number($("#monsternuminput").val());
     time=Number($("#gametimeinput").val());
     isSettingsSaved=true;
-    replace("game");
-    setupGame();
+    if (!color5choice || !color15choice ||!color25choice ||ballNumber==0 || monsterNumber==0 || time==undefined){
+        alert("please fill all the details");
+        resetSettings()
+    }
+    else if (ballNumber>90 || ballNumber<50){
+        alert("please enter valid balls number")
+        resetSettings()
+    }
+    else if (monsterNumber>4 || monsterNumber<1){
+        alert("please enter valid monsters number")
+        resetSettings()
+    }
+    else{
+        replace("game");
+        setupGame();
+        resetSettings()
+
+    }
+
+}
+
+function resetSettings(){
+    ballNumber=Number($("#ballnuminput").val(""));
+    monsterNumber=Number($("#monsternuminput").val(""));
+    time=Number($("#gametimeinput").val(""));
+    document.getElementById("france_flag_5").style.border="";
+    document.getElementById("brazil_flag_5").style.border="";
+    document.getElementById("india_flag_5").style.border="";
+    document.getElementById("italy_flag_5").style.border="";
+    document.getElementById("usa_flag_5").style.border="";
+    
+    document.getElementById("france_flag_15").style.border="";
+    document.getElementById("brazil_flag_15").style.border="";
+    document.getElementById("india_flag_15").style.border="";
+    document.getElementById("italy_flag_15").style.border="";
+    document.getElementById("usa_flag_15").style.border="";
+    
+    document.getElementById("france_flag_25").style.border="";
+    document.getElementById("brazil_flag_25").style.border="";
+    document.getElementById("india_flag_25").style.border="";
+    document.getElementById("italy_flag_25").style.border="";
+    document.getElementById("usa_flag_25").style.border="";
+
+
 }
 
 function setcolorchoice(points,country){
+    id=country+"_flag_"+points;
+    if( document.getElementById(id).style.border==""){
+        document.getElementById(id).style.border = "1px solid";
+    }
+    else{
+        document.getElementById(id).style.border = "";
+    }
     if (points=='5'){
         color5=new Image();
         color5choice=true;
