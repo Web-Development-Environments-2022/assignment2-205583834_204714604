@@ -28,7 +28,6 @@ export function setupGame() {
     pacmanImage.src = "Images/pacman/pacman2.png";
     draw_walls()
     draw_balls();
-
     draw_pacman();
     // ctx.drawImage(foodImage,200,0,30,30);
     // ctx.drawImage(foodImage,0,0,30,30);
