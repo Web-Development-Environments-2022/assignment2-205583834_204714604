@@ -1,3 +1,5 @@
+import { setupGame } from "./game";
+
 var upButtonName;
 var downButtonName;
 var leftButtonName;

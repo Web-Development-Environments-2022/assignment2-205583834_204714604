@@ -18,7 +18,7 @@ addEventListener("keyup", function (e) { delete keysDown[e.keyCode]; }, false);
 //window.addEventListener("load", setupGame, false);
 
 
-function setupGame() {
+export function setupGame() {
     board = initboard();
     canvas = document.getElementById("canvas");
     canvas.width = canvas.width;
@@ -27,7 +27,6 @@ function setupGame() {
     pacmanImage.src = "Images/pacman/pacman2.png";
     draw_walls()
     draw_balls();
-
     draw_pacman();
     // ctx.drawImage(foodImage,200,0,30,30);
     // ctx.drawImage(foodImage,0,0,30,30);
@@ -189,6 +188,14 @@ function draw_walls() {
 
     //--------Center-------------
     //chunk5
+
+
+
+
+
+}
+
+
     board[0][7] = 4;
     ctx.fillRect(0 * 30, 7 * 30, 30, 30);
     board[1][7] = 4;
@@ -509,6 +516,7 @@ function draw_walls() {
     ctx.fillRect(14 * 30, 4 * 30, 30, 30);
     board[14][5] = 4;
     ctx.fillRect(14 * 30, 5 * 30, 30, 30);
+>>>>>>> 8d22b1cde1816dc8f9e5a2f579bdb87613087920
 }
 
 function changePosition() {
