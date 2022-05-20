@@ -19,7 +19,7 @@ addEventListener("keyup", function (e) { delete keysDown[e.keyCode]; }, false);
 //window.addEventListener("load", setupGame, false);
 
 
-function setupGame() {
+export function setupGame() {
     board = initboard();
     canvas = document.getElementById("canvas");
     canvas.width = canvas.width;
