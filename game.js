@@ -11,27 +11,38 @@ var board;
 keysDown = {};
 var pacman_x;
 var pacman_y;
+var temp;
+var ghost1_x;
+ghost2_x;
+
+var isSetup=false;
+
 
 addEventListener("keydown", function (e) { keysDown[e.keyCode] = true; }, false);
 addEventListener("keyup", function (e) { delete keysDown[e.keyCode]; }, false);
 
 //window.addEventListener("load", setupGame, false);
 
-
-export function setupGame() {
+function setupGame() {
     board = initboard();
     canvas = document.getElementById("canvas");
     canvas.width = canvas.width;
     ctx = canvas.getContext("2d");
     pacmanImage = new Image();
     pacmanImage.src = "Images/pacman/pacman2.png";
-    draw_walls()
+    //draw_walls()
     draw_balls();
     draw_pacman();
+    temp=ballNumber;
+    setInterval(changePosition2,2500)
+
+
     // ctx.drawImage(foodImage,200,0,30,30);
     // ctx.drawImage(foodImage,0,0,30,30);
     // ctx.drawImage(foodImage,0,0,30,30);
     //interval = setInterval(changePosition, 250);
+    //setInterval(changePosition2(),250)
+    isSetup=true;
 }
 
 function initboard() {
@@ -101,7 +112,9 @@ function draw_pacman() {
             find_position = true;
         }
     }
+    find_position=true
 }
+
 
 function draw_walls() {
     //----------Corners-----------
@@ -189,11 +202,6 @@ function draw_walls() {
     //--------Center-------------
     //chunk5
 
-
-
-
-
-}
 
 
     board[0][7] = 4;
@@ -516,7 +524,6 @@ function draw_walls() {
     ctx.fillRect(14 * 30, 4 * 30, 30, 30);
     board[14][5] = 4;
     ctx.fillRect(14 * 30, 5 * 30, 30, 30);
->>>>>>> 8d22b1cde1816dc8f9e5a2f579bdb87613087920
 }
 
 function changePosition() {
@@ -676,6 +683,36 @@ function GetKeyPressed() {
     }
 }
 
+function changePosition2(){
+    ballNumber=temp;
+    let x=GetKeyPressed();
+    update_pacman_pos(pacman_x+1,pacman_y);
+    if (x=="up"){
+        if(pacman_x+1==20){
+            if(board[pacman_x][pacman_y]==1){
+                ctx.drawImage(pacmanImage,(pacman_x+1)*30,pacman_y*30, 30, 30);
+            }
+        }
+
+    }
+    else{
+        ctx.drawImage(pacmanImage,(pacman_x)*30,pacman_y*30, 30, 30);
+
+    }
+    
+}
+
+function update_pacman_pos(new_x,new_y){
+    ctx.clearRect(pacman_x*30,pacman_y*30,30,30);
+    ctx.drawImage(pacmanImage,new_x*30,new_y*30,30,30);
+    pacman_x=new_x;
+    pacman_y=new_y;
+}
+
+function draw_ghost1(){
+    
+
+}
 function Draw() {
     canvas.width = canvas.width; //clean board
     // ctx.rect(0, 0, canvasWidth, canvasHeight);

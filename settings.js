@@ -1,4 +1,3 @@
-import { setupGame } from "./game";
 
 var upButtonName;
 var downButtonName;
@@ -170,4 +169,3 @@ function setRightBtn(key,event){
     rightButtonNumber = event.which;
     rightButtonCode = event.code;
 }
-

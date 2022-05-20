@@ -12,9 +12,10 @@
 
 
   <script src="./jquery-3.4.1.slim.min.js"></script>
-  <script type="text/javascript" src="./controller.js"></script>
+  <script type="text/javascript" src="./controll  er.js"></script>
   <script type="text/javascript" src="./game.js"></script>
-  <script type=text/javascript src="app.js"></script>
+  <script type="text/javascript" src="./settings.js"></script>
+  <script type=text/javascript src="./app.js"></script>
   <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
 </head>
 
@@ -64,7 +65,13 @@
   <div id="content">
     <!-- =========================================================== Welcome =========================================================== -->
     <div id="welcome">
-      <h1>Welcome to PaCovid</h1>
+      <div>
+        <h1>Welcome To PaCovid</h1>
+        <center><img src="Images/chicken.jpg" height="300px"></center>
+        <button class="button-28">SignUp</button>
+        <button class="button-28">Login</button>
+      </div>
+      <!-- <h1>Welcome to PaCovid</h1>
       <h2>Help Covico control the world</h2>
       <div id="welcomeImagesWrapper">
         <img src="Images/login_welcome.png" class="welcomeImages" />
@@ -73,7 +80,7 @@
       <div>
         <p class="welcomeText">Sign gUp</p>
         <p class="welcomeText">Login</p>
-      </div>
+      </div> -->
     </div>
 
     <!-- =========================================================== Register =========================================================== -->
@@ -111,7 +118,7 @@
           <label for="text" class="regLabel">
             <p>User Name:</p>
           </label>
-          <input type="text" class="field" placeholder="Enter User Name" name="email" id="username" />
+            <input type="text" class="field" placeholder="Enter User Name" name="email" id="username" />
         </div>
         <div class="registerFieldDiv">
           <label for="psw" class="regLabel">
@@ -185,7 +192,6 @@
         <input id="lblTime" type="text" />
       </div>
       <canvas id="canvas" height="600" width="600" style="background-color:rgb(139, 208, 161)"></canvas>
-    </div>
   </div>
   <!-- ==================================Settings==================================================================================== -->
   <div id="settings" style="display:none;">
@@ -262,6 +268,7 @@
         <button onclick="setSettings()">Start Game</button>
       </div>
     </form>
+    
 
     <div id="game" style="text-align:center;display:block">
       <div id="time">
