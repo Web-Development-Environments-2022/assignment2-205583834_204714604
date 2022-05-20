@@ -8,7 +8,6 @@ var leftArrow;
 var rightArrow;
 var wallImage;
 var board;
-var shape = new Object();
 keysDown = {};
 var pacman_x;
 var pacman_y;
@@ -513,144 +512,160 @@ function draw_walls() {
 }
 
 function changePosition() {
-    var direction = getKeyPressed();
+    var direction = GetKeyPressed();
 
     if (pacmanImage.src = "Images/pacman/pacman.png") {
-        if (direction == "right" && pacman_x < 9 && board[shape.i + 1][shape.j] != 4) {
-            shape.i++;
+        if (direction == "right" && pacman_x < 9 && board[pacman_x + 1][pacman_y] != 4) {
+            pacman_x++;
             pacmanImage.src = "Images/pacman/pacman.png";
         }
-        else if (direction == "left" && shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
-            shape.i--;
+        else if (direction == "left" && pacman_x > 0 && board[pacman_x - 1][pacman_y] != 4) {
+            pacman_x--;
             pacmanImage.src = "Images/pacman/pacman2.png";
         }
-        else if (direction == "up" && shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-            shape.j--;
+        else if (direction == "up" && pacman_y > 0 && board[pacman_x][pacman_y - 1] != 4) {
+            pacman_y--;
             pacmanImage.src = "Images/pacman/pacman6.png";
         }
 
-        else if (direction == "down" && shape.j < 9 && board[shape.i][shape.j + 1] != 4) {
-            shape.j++;
+        else if (direction == "down" && pacman_y < 9 && board[pacman_x][pacman_y + 1] != 4) {
+            pacman_y++;
             pacmanImage.src = "Images/pacman/pacman3.png";
         }
     }
 
     if (pacmanImage.src = "Images/pacman/pacman2.png") {
-        if (direction == "right" && shape.i < 9 && board[shape.i + 1][shape.j] != 4) {
-            shape.i++;
+        if (direction == "right" && pacman_x < 9 && board[pacman_x + 1][pacman_y] != 4) {
+            pacman_x++;
             pacmanImage.src = "Images/pacman/pacman.png";
         }
-        else if (direction == "left" && shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
-            shape.i--;
+        else if (direction == "left" && pacman_x > 0 && board[pacman_x - 1][pacman_y] != 4) {
+            pacman_x--;
             pacmanImage.src = "Images/pacman/pacman2.png";
         }
-        else if (direction == "up" && shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-            shape.j--;
+        else if (direction == "up" && pacman_y > 0 && board[pacman_x][pacman_y - 1] != 4) {
+            pacman_y--;
             pacmanImage.src = "Images/pacman/pacman4.png";
         }
-        else if (direction == "down" && shape.j < 9 && board[shape.i][shape.j + 1] != 4) {
-            shape.j++;
+        else if (direction == "down" && pacman_y < 9 && board[pacman_x][pacman_y + 1] != 4) {
+            pacman_y++;
             pacmanImage.src = "Images/pacman/pacman5.png";
         }
     }
 
     if (pacmanImage.src = "Images/pacman/pacman3.png") {
-        if (direction == "right" && shape.i < 9 && board[shape.i + 1][shape.j] != 4) {
-            shape.i++;
+        if (direction == "right" && pacman_x < 9 && board[pacman_x + 1][pacman_y] != 4) {
+            pacman_x++;
             pacmanImage.src = "Images/pacman/pacman.png";
         }
-        else if (direction == "left" && shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
-            shape.i--;
+        else if (direction == "left" && pacman_x > 0 && board[pacman_x - 1][pacman_y] != 4) {
+            pacman_x--;
             pacmanImage.src = "Images/pacman/pacman2.png";
         }
-        else if (direction == "up" && shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-            shape.j--;
+        else if (direction == "up" && pacman_y > 0 && board[pacman_x][pacman_y - 1] != 4) {
+            pacman_y--;
             pacmanImage.src = "Images/pacman/pacman6.png";
         }
-        else if (direction == "down" && shape.j < 9 && board[shape.i][shape.j + 1] != 4) {
-            shape.j++;
+        else if (direction == "down" && pacman_y < 9 && board[pacman_x][pacman_y + 1] != 4) {
+            pacman_y++;
             pacmanImage.src = "Images/pacman/pacman3.png";
         }
     }
 
     if (pacmanImage.src = "Images/pacman/pacman4.png") {
-        if (direction == "right" && shape.i < 9 && board[shape.i + 1][shape.j] != 4) {
-            shape.i++;
+        if (direction == "right" && pacman_x < 9 && board[pacman_x + 1][pacman_y] != 4) {
+            pacman_x++;
             pacmanImage.src = "Images/pacman/pacman.png";
         }
-        else if (direction == "left" && shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
-            shape.i--;
+        else if (direction == "left" && pacman_x > 0 && board[pacman_x - 1][pacman_y] != 4) {
+            pacman_x--;
             pacmanImage.src = "Images/pacman/pacman2.png";
         }
-        else if (direction == "up" && shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-            shape.j--;
+        else if (direction == "up" && pacman_y > 0 && board[pacman_x][pacman_y - 1] != 4) {
+            pacman_y--;
             pacmanImage.src = "Images/pacman/pacman4.png";
         }
-        else if (direction == "down" && shape.j < 9 && board[shape.i][shape.j + 1] != 4) {
-            shape.j++;
+        else if (direction == "down" && pacman_y < 9 && board[pacman_x][pacman_y + 1] != 4) {
+            pacman_y++;
             pacmanImage.src = "Images/pacman/pacman3.png";
         }
     }
 
 
     if (pacmanImage.src = "Images/pacman/pacman5.png") {
-        if (direction == "right" && shape.i < 9 && board[shape.i + 1][shape.j] != 4) {
-            shape.i++;
+        if (direction == "right" && pacman_x < 9 && board[pacman_x + 1][pacman_y] != 4) {
+            pacman_x++;
             pacmanImage.src = "Images/pacman/pacman.png";
         }
-        else if (direction == "left" && shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
-            shape.i--;
+        else if (direction == "left" && pacman_x > 0 && board[pacman_x - 1][pacman_y] != 4) {
+            pacman_x--;
             pacmanImage.src = "Images/pacman/pacman2.png";
         }
-        else if (direction == "up" && shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-            shape.j--;
+        else if (direction == "up" && pacman_y > 0 && board[pacman_x][pacman_y - 1] != 4) {
+            pacman_y--;
             pacmanImage.src = "Images/pacman/pacman6.png";
         }
-        else if (direction == "down" && shape.j < 9 && board[shape.i][shape.j + 1] != 4) {
-            shape.j++;
+        else if (direction == "down" && pacman_y < 9 && board[pacman_x][pacman_y + 1] != 4) {
+            pacman_y++;
             pacmanImage.src = "Images/pacman/pacman5.png";
         }
     }
 
 
     if (pacmanImage.src = "Images/pacman/pacman6.png") {
-        if (direction == "right" && shape.i < 9 && board[shape.i + 1][shape.j] != 4) {
-            shape.i++;
+        if (direction == "right" && pacman_x < 9 && board[pacman_x + 1][pacman_y] != 4) {
+            pacman_x++;
             pacmanImage.src = "Images/pacman/pacman.png";
         }
-        else if (direction == "left" && shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
-            shape.i--;
+        else if (direction == "left" && pacman_x > 0 && board[pacman_x - 1][pacman_y] != 4) {
+            pacman_x--;
             pacmanImage.src = "Images/pacman/pacman2.png";
         }
-        else if (direction == "up" && shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-            shape.j--;
+        else if (direction == "up" && pacman_y > 0 && board[pacman_x][pacman_y - 1] != 4) {
+            pacman_y--;
             pacmanImage.src = "Images/pacman/pacman6.png";
         }
-        else if (direction == "down" && shape.j < 9 && board[shape.i][shape.j + 1] != 4) {
-            shape.j++;
+        else if (direction == "down" && pacman_y < 9 && board[pacman_x][pacman_y + 1] != 4) {
+            pacman_y++;
             pacmanImage.src = "Images/pacman/pacman5.png";
         }
     }
     Draw();
 }
 
-function getDirection(e) {
-    e = e || window.Event;
-    if (e.keyCode == '38') { return up; }
-    if (e.keyCode == '37') { return left; }
-    if (e.keyCode == '39') { return right; }
-    if (e.keyCode == '40') { return down; }
-}
+// function getDirection(e) {
+//     e = e || window.Event;
+//     if (e.keyCode == '38') { return up; }
+//     if (e.keyCode == '37') { return left; }
+//     if (e.keyCode == '39') { return right; }
+//     if (e.keyCode == '40') { return down; }
+// }
 
-function getKeyPressed() {
-    var up = sessionStorage.getItem("up");
-    var down = sessionStorage.getItem("down");
-    var right = sessionStorage.getItem("right");
-    var left = sessionStorage.getItem("left");
-    if (keysDown[up]) { return "up"; }
-    if (keysDown[down]) { return "down"; }
-    if (keysDown[left]) { return "left"; }
-    if (keysDown[right]) { return "right"; }
+// function getKeyPressed() {
+//     var up = sessionStorage.getItem("up");
+//     var down = sessionStorage.getItem("down");
+//     var right = sessionStorage.getItem("right");
+//     var left = sessionStorage.getItem("left");
+//     if (keysDown[up]) { return "up"; }
+//     if (keysDown[down]) { return "down"; }
+//     if (keysDown[left]) { return "left"; }
+//     if (keysDown[right]) { return "right"; }
+// }
+
+
+function GetKeyPressed() {
+    if (keysDown[38]) {//up
+        return "up";
+    }
+    if (keysDown[40]) {//down
+        return "down";
+    }
+    if (keysDown[37]) {//left
+        return "left";
+    }
+    if (keysDown[39]) {//right
+        return "right";
+    }
 }
 
 function Draw() {
