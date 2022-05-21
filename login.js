@@ -8,13 +8,10 @@ function login(){
     else{
         alert("Please Try Again")
     }
-    login_reset(); 
+    loginform.reset();
 }
 
-function login_reset(){
-    $("#loginusername").val("");
-    $("#loginpsw").val("");
-
-
-
-}
+// function login_reset(){
+//     $("#loginusername").val("");
+//     $("#loginpsw").val("");
+// }
