@@ -3,18 +3,8 @@ var upButtonName;
 var downButtonName;
 var leftButtonName;
 var rightButtonName;
-var upButtonNumber;
-var downButtonNumber;
-var leftButtonNumber;
-var rightButtonNumber;
-var time;
-var color5;
-var color15;
-var color25;
-var ballNumber;
-var monsterNumber;
-var isSettingsSaved=false;
 
+var isSettingsSaved=false;
 var color5choice=false;
 var color15choice=false;
 var color25choice=false;
@@ -29,58 +19,200 @@ function setSettings(){
     isSettingsSaved=true;
     if (!color5choice || !color15choice ||!color25choice ||ballNumber==0 || monsterNumber==0 || time==undefined){
         alert("please fill all the details");
-        resetSettings()
+        return;
+        // resetSettings()
     }
     else if (ballNumber>90 || ballNumber<50){
         alert("please enter valid balls number")
-        resetSettings()
+        return;
+        // resetSettings()
     }
     else if (monsterNumber>4 || monsterNumber<1){
         alert("please enter valid monsters number")
-        resetSettings()
+        return;
+        // resetSettings()
     }
     else{
         replace("game");
-        setupGame();
-        resetSettings()
+        // setupGame();
+        Start();
+        // resetSettings()
 
     }
 
 }
 
 function resetSettings(){
-    ballNumber=Number($("#ballnuminput").val(""));
-    monsterNumber=Number($("#monsternuminput").val(""));
-    time=Number($("#gametimeinput").val(""));
-    document.getElementById("france_flag_5").style.border="";
-    document.getElementById("brazil_flag_5").style.border="";
-    document.getElementById("india_flag_5").style.border="";
-    document.getElementById("italy_flag_5").style.border="";
-    document.getElementById("usa_flag_5").style.border="";
+    document.getElementById('settingsform').reset();
+    // settingsform.reset();
+    ballNumber=Number($("#ballnuminput").val("50"));
+    monsterNumber=Number($("#monsternuminput").val("1"));
+    time=Number($("#gametimeinput").val("60"));
+    document.getElementById("france_flag_5").style.border="none";
+    document.getElementById("brazil_flag_5").style.border="none";
+    document.getElementById("india_flag_5").style.border="none";
+    document.getElementById("italy_flag_5").style.border="none";
+    document.getElementById("usa_flag_5").style.border="none";
     
-    document.getElementById("france_flag_15").style.border="";
-    document.getElementById("brazil_flag_15").style.border="";
-    document.getElementById("india_flag_15").style.border="";
-    document.getElementById("italy_flag_15").style.border="";
-    document.getElementById("usa_flag_15").style.border="";
+    document.getElementById("france_flag_15").style.border="none";
+    document.getElementById("brazil_flag_15").style.border="none";
+    document.getElementById("india_flag_15").style.border="none";
+    document.getElementById("italy_flag_15").style.border="none";
+    document.getElementById("usa_flag_15").style.border="none";
     
-    document.getElementById("france_flag_25").style.border="";
-    document.getElementById("brazil_flag_25").style.border="";
-    document.getElementById("india_flag_25").style.border="";
-    document.getElementById("italy_flag_25").style.border="";
-    document.getElementById("usa_flag_25").style.border="";
+    document.getElementById("france_flag_25").style.border="none";
+    document.getElementById("brazil_flag_25").style.border="none";
+    document.getElementById("india_flag_25").style.border="none";
+    document.getElementById("italy_flag_25").style.border="none";
+    document.getElementById("usa_flag_25").style.border="none";
+
+
+}
+
+function setBorder(points,country){   
+    //flags5
+    let id=country+"_flag_"+points;
+    if (id=="france_flag_5"){
+        document.getElementById("france_flag_5").style.border = "1px solid";
+        document.getElementById('brazil_flag_5').style.border = "none";
+        document.getElementById('india_flag_5').style.border = "none";
+        document.getElementById('italy_flag_5').style.border = "none";
+        document.getElementById('usa_flag_5').style.border = "none";
+    }
+
+    if (id=="brazil_flag_5"){
+        document.getElementById("brazil_flag_5").style.border = "1px solid";
+        document.getElementById('france_flag_5').style.border = "none";
+        document.getElementById('india_flag_5').style.border = "none";
+        document.getElementById('italy_flag_5').style.border = "none";
+        document.getElementById('usa_flag_5').style.border = "none";
+    }
+
+    if (id=="india_flag_5"){
+        document.getElementById("india_flag_5").style.border = "1px solid";
+        document.getElementById('france_flag_5').style.border = "none";
+        document.getElementById('brazil_flag_5').style.border = "none";
+        document.getElementById('italy_flag_5').style.border = "none";
+        document.getElementById('usa_flag_5').style.border = "none";
+    }
+
+    if (id=="italy_flag_5"){
+        document.getElementById("italy_flag_5").style.border = "1px solid";
+        document.getElementById('france_flag_5').style.border = "none";
+        document.getElementById('brazil_flag_5').style.border = "none";
+        document.getElementById('india_flag_5').style.border = "none";
+        document.getElementById('usa_flag_5').style.border = "none";
+    }
+
+    if (id=="usa_flag_5"){
+        document.getElementById("usa_flag_5").style.border = "1px solid";
+        document.getElementById('france_flag_5').style.border = "none";
+        document.getElementById('brazil_flag_5').style.border = "none";
+        document.getElementById('india_flag_5').style.border = "none";
+        document.getElementById('italy_flag_5').style.border = "none";
+    }
+
+
+    //flags15
+    if (id=="france_flag_15"){
+        document.getElementById("france_flag_15").style.border = "1px solid";
+        document.getElementById('brazil_flag_15').style.border = "none";
+        document.getElementById('india_flag_15').style.border = "none";
+        document.getElementById('italy_flag_15').style.border = "none";
+        document.getElementById('usa_flag_15').style.border = "none";
+    }
+
+    if (id=="brazil_flag_15"){
+        document.getElementById("brazil_flag_15").style.border = "1px solid";
+        document.getElementById('france_flag_15').style.border = "none";
+        document.getElementById('india_flag_15').style.border = "none";
+        document.getElementById('italy_flag_15').style.border = "none";
+        document.getElementById('usa_flag_15').style.border = "none";
+    }
+
+    if (id=="india_flag_15"){
+        document.getElementById("india_flag_15").style.border = "1px solid";
+        document.getElementById('france_flag_15').style.border = "none";
+        document.getElementById('brazil_flag_15').style.border = "none";
+        document.getElementById('italy_flag_15').style.border = "none";
+        document.getElementById('usa_flag_15').style.border = "none";
+    }
+
+    if (id=="italy_flag_15"){
+        document.getElementById("italy_flag_15").style.border = "1px solid";
+        document.getElementById('france_flag_15').style.border = "none";
+        document.getElementById('brazil_flag_15').style.border = "none";
+        document.getElementById('india_flag_15').style.border = "none";
+        document.getElementById('usa_flag_15').style.border = "none";
+    }
+
+    if (id=="usa_flag_15"){
+        document.getElementById("usa_flag_15").style.border = "1px solid";
+        document.getElementById('france_flag_15').style.border = "none";
+        document.getElementById('brazil_flag_15').style.border = "none";
+        document.getElementById('india_flag_15').style.border = "none";
+        document.getElementById('italy_flag_15').style.border = "none";
+    }
+
+
+    //flags25
+    if (id=="france_flag_25"){
+        document.getElementById("france_flag_25").style.border = "1px solid";
+        document.getElementById('brazil_flag_25').style.border = "none";
+        document.getElementById('india_flag_25').style.border = "none";
+        document.getElementById('italy_flag_25').style.border = "none";
+        document.getElementById('usa_flag_25').style.border = "none";
+    }
+
+    if (id=="brazil_flag_25"){
+        document.getElementById("brazil_flag_25").style.border = "1px solid";
+        document.getElementById('france_flag_25').style.border = "none";
+        document.getElementById('india_flag_25').style.border = "none";
+        document.getElementById('italy_flag_25').style.border = "none";
+        document.getElementById('usa_flag_25').style.border = "none";
+    }
+
+    if (id=="india_flag_25"){
+        document.getElementById("india_flag_25").style.border = "1px solid";
+        document.getElementById('france_flag_25').style.border = "none";
+        document.getElementById('brazil_flag_25').style.border = "none";
+        document.getElementById('italy_flag_25').style.border = "none";
+        document.getElementById('usa_flag_25').style.border = "none";
+    }
+
+    if (id=="italy_flag_25"){
+        document.getElementById("italy_flag_25").style.border = "1px solid";
+        document.getElementById('france_flag_25').style.border = "none";
+        document.getElementById('brazil_flag_25').style.border = "none";
+        document.getElementById('india_flag_25').style.border = "none";
+        document.getElementById('usa_flag_25').style.border = "none";
+    }
+
+    if (id=="usa_flag_25"){
+        document.getElementById("usa_flag_25").style.border = "1px solid";
+        document.getElementById('france_flag_25').style.border = "none";
+        document.getElementById('brazil_flag_25').style.border = "none";
+        document.getElementById('india_flag_25').style.border = "none";
+        document.getElementById('italy_flag_25').style.border = "none";
+    }
+
+
+
+
+
 
 
 }
 
 function setcolorchoice(points,country){
-    id=country+"_flag_"+points;
-    if( document.getElementById(id).style.border==""){
-        document.getElementById(id).style.border = "1px solid";
-    }
-    else{
-        document.getElementById(id).style.border = "";
-    }
+    setBorder(points,country);
+    // id=country+"_flag_"+points;
+    // if( document.getElementById(id).style.border==""){
+    //     document.getElementById(id).style.border = "1px solid";
+    // }
+    // else{
+    //     document.getElementById(id).style.border = "";
+    // }
     if (points=='5'){
         color5=new Image();
         color5choice=true;
@@ -168,4 +300,22 @@ function setRightBtn(key,event){
     $(key).val(event.code);
     rightButtonNumber = event.which;
     rightButtonCode = event.code;
+}
+
+
+function setRandomSettings(){
+    random_balls_number=getRandomInt(50,90);
+    random_time=getRandomInt(60,600000);
+    random_monsters =getRandomInt(1,4);
+    $("#ballnuminput").val('random_balls_number');
+    $("#monstersnum").val('random_monsters');
+
+
+}
+
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

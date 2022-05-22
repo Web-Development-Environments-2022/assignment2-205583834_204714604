@@ -12,8 +12,10 @@
 
 
   <script src="./jquery-3.4.1.slim.min.js"></script>
-  <script type="text/javascript" src="./controll  er.js"></script>
+  <script type="text/javascript" src="./controller.js"></script>
   <script type="text/javascript" src="./game.js"></script>
+  <script type="text/javascript" src="./app.js"></script>
+
   <script type="text/javascript" src="./settings.js"></script>
   <script type=text/javascript src="./app.js"></script>
   <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
@@ -68,8 +70,8 @@
       <div>
         <h1>Welcome To PaCovid</h1>
         <center><img src="Images/chicken.jpg" height="300px"></center>
-        <button class="button-28">SignUp</button>
-        <button class="button-28">Login</button>
+        <button class="button-28" onclick="replace('register')">Sign Up</button>
+        <button class="button-28" onclick="replace('login')">Login</button>
       </div>
       <!-- <h1>Welcome to PaCovid</h1>
       <h2>Help Covico control the world</h2>
@@ -148,7 +150,7 @@
           <button type="submit" class="registerbtn button-28" onclick="signup()">
             Register
           </button>
-          <button type="reset" onclick="reset()" class="registerbtn button-28">Reset</button>
+          <button type="reset" class="registerbtn button-28">Reset</button>
         </div>
       </form>
     </div>
@@ -191,26 +193,28 @@
         <label for="lblTime">TIME:</label>
         <input id="lblTime" type="text" />
       </div>
-      <canvas id="canvas" height="600" width="600" style="background-color:rgb(139, 208, 161)"></canvas>
+      <canvas id="canvas" height="600" width="600" style="background-color:blue;"></canvas>
+
+      <!-- <canvas id="canvas" height="600" width="600" style="background-color:rgb(139, 208, 161)"></canvas> -->
   </div>
   <!-- ==================================Settings==================================================================================== -->
   <div id="settings" style="display:none;">
-    <form action="" id="settingsform" onsubmit="return false">
+    <form id="settingsform" onsubmit="return false">
       <div class="settingslabelinputdiv">
         <label id="upbtnlabel" class="settingslabel">Up Button:</label>
-        <input id="upbtninput" type="text" value="ArrowUp">
+        <input id="u  pbtninput" type="text" value="ArrowUp" required>
       </div>
       <div class="settingslabelinputdiv">
         <label id="downbtnlabel" class="settingslabel">Down Button:</label>
-        <input id="downbtninput" type="text" value="ArrowDown">
+        <input id="downbtninput" type="text" value="ArrowDown" required>
       </div>
       <div class="settingslabelinputdiv">
         <label id="leftbtnlabel" class="settingslabel">Left Button:</label>
-        <input id="leftbtninput" type="text" value="ArrowLeft">
+        <input id="leftbtninput" type="text" value="ArrowLeft" required>
       </div>
       <div class="settingslabelinputdiv">
         <label id="rightbtnlabel" class="settingslabel">Right Button:</label>
-        <input id="rightbtninput" type="text" value="ArrowRight">
+        <input id="rightbtninput" type="text" value="ArrowRight" required>
       </div>
       <div class="settingslabelinputdiv">
         <label id="color5label">5 Points Ball Color:</label>
@@ -254,29 +258,29 @@
       </div>
       <div class="settingslabelinputdiv">
         <label id="ballnum">Number Of Balls:</label>
-        <input type="number" min="50" max="90" id="ballnuminput">
+        <input type="number" min="50" max="90" id="ballnuminput" value="50" required>
       </div>
       <div class="settingslabelinputdiv">
         <label id="monstersnum">Number Of Monsters:</label>
-        <input type="number" min="1" max="4" id="monsternuminput">
+        <input type="number" min="1" max="4" id="monsternuminput" value="1" required>
       </div>
       <div class="settingslabelinputdiv">
         <label id="gametime">Game Time (min):</label>
-        <input type="number" min="60" id="gametimeinput">
+        <input type="number" min="60" id="gametimeinput" value="60" required>
       </div>
       <div class="settingslabelinputdiv">
-        <button onclick="setSettings()">Start Game</button>
+        <button id="setSettingsToGame" type="button">Start Game</button>
       </div>
     </form>
     
 
-    <div id="game" style="text-align:center;display:block">
+    <!-- <div id="game" style="text-align:center;display:block">
       <div id="time">
         <label for="lblTime">TIME:</label>
         <input id="lblTime" type="text" />
       </div>
       <canvas id="canvas" height="600" width="600px"></canvas>
-    </div>
+    </div> -->
   </div>
 
   <!-- ==================================Settings==================================================================================== -->
@@ -330,7 +334,7 @@
 
   <!-- ============================================================================================================================ -->
   <div id="resources" style="display: none">
-    <img src="Images/flags/flag1.gif" />
+    <!-- <img src="Images/flags/flag1.gif" />
     <img src="Images/flags/flag2.gif" />
     <img src="Images/flags/flag3.gif" />
     <img src="Images/flags/flag4.gif" />
@@ -338,9 +342,14 @@
     <img src="Images/flags/flag6.gif" />
     <img src="Images/flags/flag7.gif" />
     <img src="Images/flags/flag8.gif" />
-    <img src="Images/flags/flag10.gif" />
-    <img src="Images/pacman.JPG" />
+    <img src="Images/flags/flag10.gif" /> -->
+    <img src="Images/pacman.JPG" /> 
     <img src="Images/pacman/pacman2.png">
+    <img src="Images/ghosts/ghost1.png">
+    <img src="Images/ghosts/ghost2.png">
+    <img src="Images/ghosts/ghost3.png">
+    <img src="Images/ghosts/ghost4.png">
+
   </div>
 </body>
 <script type="text/javascript" src="./register.js"></script>

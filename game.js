@@ -703,17 +703,57 @@ function update_pacman_pos(new_x, new_y) {
 //     if (e.keyCode == '40') { return down; }
 // }
 
-// function getKeyPressed() {
-//     var up = sessionStorage.getItem("up");
-//     var down = sessionStorage.getItem("down");
-//     var right = sessionStorage.getItem("right");
-//     var left = sessionStorage.getItem("left");
-//     if (keysDown[up]) { return "up"; }
-//     if (keysDown[down]) { return "down"; }
-//     if (keysDown[left]) { return "left"; }
-//     if (keysDown[right]) { return "right"; }
+// // function getDirection(e) {
+// //     e = e || window.Event;
+// //     if (e.keyCode == '38') { return up; }
+// //     if (e.keyCode == '37') { return left; }
+// //     if (e.keyCode == '39') { return right; }
+// //     if (e.keyCode == '40') { return down; }
+// // }
+
+// // function getKeyPressed() {
+// //     var up = sessionStorage.getItem("up");
+// //     var down = sessionStorage.getItem("down");
+// //     var right = sessionStorage.getItem("right");
+// //     var left = sessionStorage.getItem("left");
+// //     if (keysDown[up]) { return "up"; }
+// //     if (keysDown[down]) { return "down"; }
+// //     if (keysDown[left]) { return "left"; }
+// //     if (keysDown[right]) { return "right"; }
+// // }
+
+
+// function GetKeyPressed() {
+//     if (keysDown[38]) {//up
+//         return "up";
+//     }
+//     if (keysDown[40]) {//down
+//         return "down";
+//     }
+//     if (keysDown[37]) {//left
+//         return "left";
+//     }
+//     if (keysDown[39]) {//right
+//         return "right";
+//     }
 // }
 
+// function changePosition2(){
+//     ballNumber=temp;
+//     let x=GetKeyPressed();
+//     if (x=="up"){
+//         if(pacman_x+1==20){
+//             if(board[pacman_x][pacman_y]==1){
+//                 ctx.drawImage(pacmanImage,(pacman_x+1)*30,pacman_y*30, 30, 30);
+//             }
+//         }
+//     }
+
+//     else if (x=="down"){
+
+//     }
+//     else{
+//         ctx.drawImage(pacmanImage,(pacman_x)*30,pacman_y*30, 30, 30);
 
 function GetKeyPressed() {
     if (keysDown[38]) {//up
