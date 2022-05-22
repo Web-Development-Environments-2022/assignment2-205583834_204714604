@@ -865,35 +865,35 @@ function draw_pacman() {
 
 	function move_monsters(){
 		var lst=[-1,0,1];
-		let rand_x=Math.floor(Math.random*3);
-		let rand_y=Math.floor(Math.random*3);
-		while (board[ghost1_x+rand_x][ghost1_y+rand_y]==4){
-			rand_x=Math.floor(Math.random*3);
-			rand_y=Math.floor(Math.random*3);
+		let rand_x=Math.floor(Math.random()*3);
+		let rand_y=Math.floor(Math.random()*3);
+		while (board[ghost1_x+lst[rand_x]][ghost1_y+lst[rand_y]]==4){
+			rand_x=Math.floor(Math.random()*3);
+			rand_y=Math.floor(Math.random()*3);
 		}
-		ghost1_x=ghost1_x+rand_x;
-		ghost1_y=ghost1_y+rand_y;
+		ghost1_x=ghost1_x+lst[rand_x];
+		ghost1_y=ghost1_y+lst[rand_y];
 
-		while (board[ghost2_x+rand_x][ghost2_y+rand_y]==4){
-			rand_x=Math.floor(Math.random*3);
-			rand_y=Math.floor(Math.random*3);
+		while (board[ghost2_x+lst[rand_x]][ghost2_y+lst[rand_y]]==4){
+			rand_x=Math.floor(Math.random()*3);
+			rand_y=Math.floor(Math.random()*3);
 		}
-		ghost2_x=ghost2_x+rand_x;
-		ghost2_y=ghost2_y+rand_y;
+		ghost2_x=ghost2_x+lst[rand_x];
+		ghost2_y=ghost2_y+lst[rand_y];
 
-		while (board[ghost3_x+rand_x][ghost3_y+rand_y]==4){
-			rand_x=Math.floor(Math.random*3);
-			rand_y=Math.floor(Math.random*3);
+		while (board[ghost3_x+lst[rand_x]][ghost3_y+lst[rand_y]]==4){
+			rand_x=Math.floor(Math.random()*3);
+			rand_y=Math.floor(Math.random()*3);
 		}
-		ghost3_x=ghost3_x+rand_x;
-		ghost3_y=ghost3_y+rand_y;
+		ghost3_x=ghost3_x+lst[rand_x];
+		ghost3_y=ghost3_y+lst[rand_y];
 
-		while (board[ghost4_x+rand_x][ghost4_y+rand_y]==4){
-			rand_x=Math.floor(Math.random*3);
-			rand_y=Math.floor(Math.random*3);
+		while (board[ghost4_x+lst[rand_x]][ghost4_y+rlst[and_y]]==4){
+			rand_x=Math.floor(Math.random()*3);
+			rand_y=Math.floor(Math.random()*3);
 		}
-		ghost4_x=ghost4_x+rand_x;
-		ghost4_y=ghost4_y+rand_y;
+		ghost4_x=ghost4_x+lst[rand_x];
+		ghost4_y=ghost4_y+lst[rand_y];
 
 	}
 	function drawPacmenImg(x,y){
@@ -902,6 +902,7 @@ function draw_pacman() {
 
 	}
 	function UpdatePosition() {
+
 		board[shape.i][shape.j] = "empty";
 		var x = GetKeyPressed();
 		if (x == 1) {
