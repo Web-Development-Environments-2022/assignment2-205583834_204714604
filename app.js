@@ -757,38 +757,13 @@ function draw_ghosts() {
 		context.drawImage(ghost1Img, ghost1_x * 10, ghost1_y * 10, 35, 35);
 	}
 
-	function move_monsters(){
-		var lst=[-1,0,1];
-		let rand_x=Math.floor(Math.random*3);
-		let rand_y=Math.floor(Math.random*3);
-		while (board[ghost1_x+rand_x][ghost1_y+rand_y]==4){
-			rand_x=Math.floor(Math.random*3);
-			rand_y=Math.floor(Math.random*3);
-		}
-		ghost1_x=ghost1_x+rand_x;
-		ghost1_y=ghost1_y+rand_y;
-
-		while (board[ghost2_x+rand_x][ghost2_y+rand_y]==4){
-			rand_x=Math.floor(Math.random*3);
-			rand_y=Math.floor(Math.random*3);
-		}
-		ghost2_x=ghost2_x+rand_x;
-		ghost2_y=ghost2_y+rand_y;
-
-		while (board[ghost3_x+rand_x][ghost3_y+rand_y]==4){
-			rand_x=Math.floor(Math.random*3);
-			rand_y=Math.floor(Math.random*3);
-		}
-		ghost3_x=ghost3_x+rand_x;
-		ghost3_y=ghost3_y+rand_y;
-
-		while (board[ghost4_x+rand_x][ghost4_y+rand_y]==4){
-			rand_x=Math.floor(Math.random*3);
-			rand_y=Math.floor(Math.random*3);
-		}
-		ghost4_x=ghost4_x+rand_x;
-		ghost4_y=ghost4_y+rand_y;
-
+	if (monsterNumber == 2) {
+		ghost1_x = 0;
+		ghost1_y = 0;
+		context.drawImage(ghost1Img, ghost1_x * 10, ghost1_y * 10, 35, 35);
+		ghost2_x = 0;
+		ghost2_y = 19;
+		context.drawImage(ghost2Img, ghost2_x * 10, ghost2_y * 10, 35, 35);
 	}
 	if (monsterNumber == 3) {
 		ghost1_x = 0;
@@ -801,13 +776,60 @@ function draw_ghosts() {
 		ghost3_y = 0;
 		context.drawImage(ghost3Img, ghost3_x * 10, ghost3_y * 10, 35, 35);
 	}
-	function UpdatePosition() {
-		board[shape.i][shape.j] = "empty";
-		var x = GetKeyPressed();
-		if (x == 1) {
-			if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-				shape.j--;
+
+	if (monsterNumber == 4) {
+		ghost1_x = 0;
+		ghost1_y = 0;
+		context.drawImage(ghost1Img, ghost1_x * 10, ghost1_y * 10, 35, 35);
+		ghost2_x = 0;
+		ghost2_y = 19;
+		context.drawImage(ghost2Img, ghost2_x * 10, ghost2_y * 10, 35, 35);
+		ghost3_x = 19;
+		ghost3_y = 0;
+		context.drawImage(ghost3Img, ghost3_x * 10, ghost3_y * 10, 35, 35);
+		ghost4_x = 19;
+		ghost4_y = 19;
+		context.drawImage(ghost4Img, ghost4_x * 10, ghost4_y * 10, 35, 35);
+	}
+
+}
+
+function drawPacmenImg(x, y) {
+	actor.src = "Images/pacman/pacman2.png";
+	context.drawImage(actor, x - boardCellRadius / 1.5, y - boardCellRadius / 1.5, boardCellRadius * 1.5, boardCellRadius * 1.5);
+
+}
+function UpdatePosition() {
+
+	board[shape.i][shape.j] = "empty";
+	var x = GetKeyPressed();
+	if (x == 1) {
+		
+		if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
+			shape.j--;
+     		if (actor.src = "Images/pacman/pacman.png") {
+				actor.src = "Images/pacman/pacman6.png";
+	 		}
+	 		else if (actor.src = "Images/pacman/pacman2.png"){
+				actor.src = "Images/pacman/pacman4.png";
+			 }
+
+	 		else if(actor.src = "Images/pacman/pacman3.png"){
+				actor.src = "Images/pacman/pacman6.png";
+	 		}
+
+			else if(actor.src = "Images/pacman/pacman4.png"){
+				actor.src = "Images/pacman/pacman4.png";
 			}
+			
+			else if(actor.src = "Images/pacman/pacman5.png"){
+				actor.src = "Images/pacman/pacman6.png";
+			}
+
+			else if(actor.src = "Images/pacman/pacman6.png"){
+				actor.src = "Images/pacman/pacman6.png";
+			}
+
 		}
 	}
 	if (x == 2) {
