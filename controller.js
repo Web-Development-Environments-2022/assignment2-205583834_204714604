@@ -1,11 +1,15 @@
 
 
 $(document).ready(function () {
-    $("#setSettingsToGame").click(setSettings);
-    $("#upbtninput").keydown(function (event) { setUpBtn(this, event); });
-    $("#downbtninput").keydown(function (event) { setDownBtn(this, event); });
-    $("#leftbtninput").keydown(function (event) { setLeftBtn(this, event); });
-    $("#rightbtninput").keydown(function (event) { setRightBtn(this, event); });
+	upButtonNumber = 38;
+	downButtonNumber = 40;
+	leftButtonNumber = 37;
+	rightButtonNumber = 39;
+	$("#setSettingsToGame").click(setSettings);
+	$("#upbtninput").keydown(function (event) { setUpBtn(this, event); });
+	$("#downbtninput").keydown(function (event) { setDownBtn(this, event); });
+	$("#leftbtninput").keydown(function (event) { setLeftBtn(this, event); });
+	$("#rightbtninput").keydown(function (event) { setRightBtn(this, event); });
 });
 
 function replace(show) {
