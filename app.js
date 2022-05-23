@@ -804,47 +804,112 @@ function UpdatePosition() {
 	board[shape.i][shape.j] = "empty";
 	var x = GetKeyPressed();
 	if (x == 1) {
-		
+
 		if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
 			shape.j--;
-     		if (actor.src = "Images/pacman/pacman.png") {
+			if (actor.src = "Images/pacman/pacman.png") {
 				actor.src = "Images/pacman/pacman6.png";
-	 		}
-	 		else if (actor.src = "Images/pacman/pacman2.png"){
-				actor.src = "Images/pacman/pacman4.png";
-			 }
-
-	 		else if(actor.src = "Images/pacman/pacman3.png"){
-				actor.src = "Images/pacman/pacman6.png";
-	 		}
-
-			else if(actor.src = "Images/pacman/pacman4.png"){
+			}
+			else if (actor.src = "Images/pacman/pacman2.png") {
 				actor.src = "Images/pacman/pacman4.png";
 			}
-			
-			else if(actor.src = "Images/pacman/pacman5.png"){
+
+			else if (actor.src = "Images/pacman/pacman3.png") {
 				actor.src = "Images/pacman/pacman6.png";
 			}
 
-			else if(actor.src = "Images/pacman/pacman6.png"){
+			else if (actor.src = "Images/pacman/pacman4.png") {
+				actor.src = "Images/pacman/pacman4.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman5.png") {
 				actor.src = "Images/pacman/pacman6.png";
 			}
 
+			else if (actor.src = "Images/pacman/pacman6.png") {
+				actor.src = "Images/pacman/pacman6.png";
+			}
 		}
 	}
-	if (x == 2) {
+	else if (x == 2) {
 		if (shape.j < (boardSize - 1) && board[shape.i][shape.j + 1] != 4) {
 			shape.j++;
+			if (actor.src = "Images/pacman/pacman.png") {
+				actor.src = "Images/pacman/pacman3.png";
+			}
+			else if (actor.src = "Images/pacman/pacman2.png") {
+				actor.src = "Images/pacman/pacman5.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman3.png") {
+				actor.src = "Images/pacman/pacman3.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman4.png") {
+				actor.src = "Images/pacman/pacman3.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman5.png") {
+				actor.src = "Images/pacman/pacman5.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman6.png") {
+				actor.src = "Images/pacman/pacman5.png";
+			}
 		}
 	}
-	if (x == 3) {
+	else if (x == 3) {
 		if (shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
 			shape.i--;
+			if (actor.src = "Images/pacman/pacman.png") {
+				actor.src = "Images/pacman/pacman2.png";
+			}
+			else if (actor.src = "Images/pacman/pacman2.png") {
+				actor.src = "Images/pacman/pacman2.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman3.png") {
+				actor.src = "Images/pacman/pacman2.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman4.png") {
+				actor.src = "Images/pacman/pacman2.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman5.png") {
+				actor.src = "Images/pacman/pacman2.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman6.png") {
+				actor.src = "Images/pacman/pacman2.png";
+			}
 		}
 	}
-	if (x == 4) {
+	else if (x == 4) {
 		if (shape.i < (boardSize - 1) && board[shape.i + 1][shape.j] != 4) {
 			shape.i++;
+			if (actor.src = "Images/pacman/pacman.png") {
+				actor.src = "Images/pacman/pacman.png";
+			}
+			else if (actor.src = "Images/pacman/pacman2.png") {
+				actor.src = "Images/pacman/pacman.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman3.png") {
+				actor.src = "Images/pacman/pacman.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman4.png") {
+				actor.src = "Images/pacman/pacman.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman5.png") {
+				actor.src = "Images/pacman/pacman.png";
+			}
+
+			else if (actor.src = "Images/pacman/pacman6.png") {
+				actor.src = "Images/pacman/pacman.png";
+			}
 		}
 	}
 
