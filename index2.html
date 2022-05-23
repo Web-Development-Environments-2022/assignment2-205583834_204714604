@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="style/register.css" />
   <link rel="stylesheet" href="style/login.css" />
   <link rel="stylesheet" href="style/settings.css" />
+  <link rel="stylesheet" href="style/game.css" />
+
 
 
 
@@ -17,7 +19,10 @@
   <script type="text/javascript" src="./app.js"></script>
 
   <script type="text/javascript" src="./settings.js"></script>
-  <script type=text/javascript src="./app.js"></script>
+
+  <script type=text/javascript src="./game_wrappers.js"></script>
+
+
   <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
 </head>
 
@@ -40,7 +45,7 @@
       </div>
     </div>
     <div id="header-left" class="header-item">
-      <h2>Snir Gaaton & Daniel Deri</h2>
+      <h2 id="maintitle">Snir Gaaton & Daniel Deri</h2>
     </div>
   </header>
 
@@ -115,6 +120,9 @@
 				</form>
         </div> -->
     <div id="register" style="display: none">
+      <div id="signupheader">
+      <img src="Images/titles/sign_up.png">
+    </div>
       <form action="" id="registerform" onsubmit="return false">
         <div class="registerFieldDiv">
           <label for="text" class="regLabel">
@@ -157,6 +165,7 @@
 
     <!-- =========================================================== Login =========================================================== -->
     <div id="login" style="display: none">
+      <img src="Images/titles/login.png" id="loginheader">
       <form action="" id="loginform" onsubmit="return false">
         <div class="registerFieldDiv">
           <label for="text" class="loginlabel">
@@ -193,8 +202,31 @@
         <label for="lblTime">TIME:</label>
         <input id="lblTime" type="text" />
       </div>
+      <div id="gamedata">
+        <h1 >Game Data:</h1>
+        <h3 id="usernameheading">User Name:<span id="gameusernamevalue"></span></h3>
+        <p id="gameusernamevalue" class="gamedata"></p>
+        <h3 class="gamedataheading">Number Of Lives:</h3>
+        <p id="gamelivesdata" class="gamedata"></p>
+        <h3 class="gamedataheading">Time:</h3>
+        <p id="gameTimedata" class="gamedata"></p>
+      </div>
+      <div id-="actualgame">
       <canvas id="canvas" height="600" width="600" style="background-color:blue;"></canvas>
+      </div>
+      <div id="gamesettings">
+        <h1>Game Settings</h1>
+        <h3 class="game_settings_ingame_headings"> Game Time: <span id="game_game_time"></span></h3>
+        <h3 class="game_settings_ingame_headings"> Number Of Ghosts: <span id="game_ghosts_number"></span></h3>
+        <h3 class="game_settings_ingame_headings"> Game Balls:</h3>
+        <h4> 5 Points <span id="game5points"></span> </h4>
+        <h4> 15 Points <span id="game15points"></span></h4>
+        <h4> 25 Points <span id="game25points"></span></h4>
 
+        <h3 class="game_settings_ingame_headings"> Game Movement Buttons:</h3>
+
+
+      </div>
       <!-- <canvas id="canvas" height="600" width="600" style="background-color:rgb(139, 208, 161)"></canvas> -->
   </div>
   <!-- ==================================Settings==================================================================================== -->
@@ -202,7 +234,7 @@
     <form id="settingsform" onsubmit="return false">
       <div class="settingslabelinputdiv">
         <label id="upbtnlabel" class="settingslabel">Up Button:</label>
-        <input id="u  pbtninput" type="text" value="ArrowUp" required>
+        <input id="upbtninput" type="text" value="ArrowUp" required>
       </div>
       <div class="settingslabelinputdiv">
         <label id="downbtnlabel" class="settingslabel">Down Button:</label>
@@ -269,7 +301,8 @@
         <input type="number" min="60" id="gametimeinput" value="60" required>
       </div>
       <div class="settingslabelinputdiv">
-        <button id="setSettingsToGame" type="button">Start Game</button>
+        <button id="randombutton" class="button-28" onclick="setRandomSettings()">Random</button>
+        <button id="setSettingsToGame" type="button" class="button-28">Start Game</button>
       </div>
     </form>
     

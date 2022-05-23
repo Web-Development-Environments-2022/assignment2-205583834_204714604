@@ -115,3 +115,9 @@ header {
     }
 
 
+    header{
+      background-color: rgba(237, 237, 237, 0.838);
+      margin-top:-7px;
+      width: 100%;
+    }
+

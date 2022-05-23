@@ -1,3 +1,4 @@
+var actual_user_name;
 
 var upButtonName;
 var downButtonName;
@@ -36,6 +37,10 @@ function setSettings(){
         replace("game");
         // setupGame();
         Start();
+        update_game_username();
+        updateGameTime();
+        updateNumberofGhosts();
+        updategame_flags();
         // resetSettings()
 
     }
@@ -276,11 +281,9 @@ function setcolorchoice(points,country){
 }
 
 function setUpBtn(key, event){
-    console.log(key);
-    console.log(event.code);
     $(key).val(event.code);
     upButtonNumber = event.which;
-    upButtonName = event.code;
+    upButtonCode = event.code;
 }
 
 function setDownBtn(key,event){
@@ -307,8 +310,90 @@ function setRandomSettings(){
     random_balls_number=getRandomInt(50,90);
     random_time=getRandomInt(60,600000);
     random_monsters =getRandomInt(1,4);
-    $("#ballnuminput").val('random_balls_number');
-    $("#monstersnum").val('random_monsters');
+    $("#ballnuminput").val(random_balls_number);
+    $("#monsternuminput").val(random_monsters);
+    $("#gametimeinput").val(random_time);
+
+    
+    rand_number_5=Math.floor(Math.random()*5);
+    rand_number_15=Math.floor(Math.random()*5);
+    rand_number_25=Math.floor(Math.random()*5);
+
+    if (rand_number_5==0){
+        setBorder(5,"france");
+        setcolorchoice(5,"france");
+    }
+    if (rand_number_5==1){
+        setBorder(5,"brazil");
+        setcolorchoice(5,"brazil");
+    }
+    if (rand_number_5==2){
+        setBorder(5,"india");
+        setcolorchoice(5,"india");
+
+    }
+    if (rand_number_5==3){
+        setBorder(5,"italy");
+        setcolorchoice(5,"italy");
+
+    }
+    if (rand_number_5==4){
+        setBorder(5,"usa");
+        setcolorchoice(5,"usa");
+
+    }
+    
+    if (rand_number_15==0){
+        setBorder(15,"france");
+        setcolorchoice(15,"france");
+
+    }
+    if (rand_number_15==1){
+        setBorder(15,"brazil");
+        setcolorchoice(15,"brazil");
+
+    }
+    if (rand_number_15==2){
+        setBorder(15,"india");
+        setcolorchoice(15,"india");
+
+    }
+    if (rand_number_15==3){
+        setBorder(15,"italy");
+        setcolorchoice(15,"italy");
+
+    }
+    if (rand_number_15==4){
+        setBorder(15,"usa");
+        setcolorchoice(15,"usa");
+
+    }
+
+    if (rand_number_25==0){
+        setBorder(25,"france");
+        setcolorchoice(25,"france");
+
+    }
+    if (rand_number_25==1){
+        setBorder(25,"brazil");
+        setcolorchoice(25,"brazil");
+
+    }
+    if (rand_number_25==2){
+        setBorder(25,"india");
+        setcolorchoice(25,"india");
+
+    }
+    if (rand_number_25==3){
+        setBorder(25,"italy");
+        setcolorchoice(25,"italy");
+
+    }
+    if (rand_number_25==4){
+        setBorder(25,"usa");
+        setcolorchoice(25,"usa");
+
+    }
 
 
 }

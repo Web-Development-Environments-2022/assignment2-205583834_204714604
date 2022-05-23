@@ -3,6 +3,8 @@ function login(){
     let pass=$("#loginpsw").val();
     if(map.get(username)==pass){
         replace("settings");
+        actual_user_name=username;
+        //updateUserName();
         
     }
     else{
