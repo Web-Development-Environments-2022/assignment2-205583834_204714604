@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="style/login.css" />
   <link rel="stylesheet" href="style/settings.css" />
   <link rel="stylesheet" href="style/game.css" />
+  <link rel="stylesheet" type="text/css" href="style/aboutModal.css">
+
 
 
 
@@ -62,7 +64,7 @@
       <div class="title">Login</div>
       <div class="bar"></div>
     </a>
-
+    <!-- <a href="#" id="about" class="button mBtn" onclick="showAbout()">About</a> -->
     <a href="#" onclick="replace('about')" class="link">
       <div class="title">About</div>
       <div class="bar"></div>
@@ -121,8 +123,8 @@
         </div> -->
     <div id="register" style="display: none">
       <div id="signupheader">
-      <img src="Images/titles/sign_up.png">
-    </div>
+        <img src="Images/titles/sign_up.png">
+      </div>
       <form action="" id="registerform" onsubmit="return false">
         <div class="registerFieldDiv">
           <label for="text" class="regLabel">
@@ -186,48 +188,90 @@
 
     <!-- =========================================================== About =========================================================== -->
 
-    <div id="about"></div>
-    <!-- <script>
-			$("#myform").validate();
-			</script> -->
+    <div id="about" class="modal" role="dialog">
+      <div class="modalContent">
+        <div class="modalHeader">
+          <h1 class="modalTitle">About PaCovid</h1>
+          <span class="close" aria-hidden="true" onclick="hideAbout()">&times;</span>
+        </div>
+        <div class='subHeader'>
+          <h4><b><i>Developed by Daniel Deri and Snir Gaaton</i></b></h4>
+        </div>
+        <div class="modalBody">
+          <p>
+            <center><b><i>Welcome to the the game that conquered the world!</i></b></center>
+            <br>
+            <b>PaCovid! The virus that changed the world!</b>
+            <br>
+            If you want to win in the game, you have to help PaCovid conquer all the countries before all the vaccines
+            catch him!
+            So how do you do that?!
+            Eat all countries and can earn at least 100 points before the time runs out.
+            <br>
+            <center><b><i>Good Luck!</i></b></center>
+          </p>
+        </div>
+        <div class="modalAnswer">
+          <p>
+            JQuery Plugin:
+            <br>
+            We used in the jquery to get the required values and we checked them using an regular javascript.
+            <br>
+            Template:
+            We did not used Template.
+            <br>
+            Our main struggles were the work with the canvas and the functionalities.
+            In aditiion it was difficult to design the website layout.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- =========================================================== Game =========================================================== -->
+  <footer>
+    <p>
+      Contact information: Daniel Deri - derida@post.bgu.ac.il, Snir Gaaton - snirga@post.bgu.ac.il
+      <br>
+    </p>
+  </footer>
 
-    <div id="game" style="display: none">
-      <div id="score">
-        <label for="lblScore">SCORE:</label>
-        <input id="lblScore" type="text" />
-      </div>
-      <div id="time">
-        <label for="lblTime">TIME:</label>
-        <input id="lblTime" type="text" />
-      </div>
-      <div id="gamedata">
-        <h1 >Game Data:</h1>
-        <h3 id="usernameheading">User Name:<span id="gameusernamevalue"></span></h3>
-        <p id="gameusernamevalue" class="gamedata"></p>
-        <h3 class="gamedataheading">Number Of Lives:</h3>
-        <p id="gamelivesdata" class="gamedata"></p>
-        <h3 class="gamedataheading">Time:</h3>
-        <p id="gameTimedata" class="gamedata"></p>
-      </div>
-      <div id-="actualgame">
+  <!-- =========================================================== Game =========================================================== -->
+
+  <div id="game" style="display: none">
+    <div id="score">
+      <label for="lblScore">SCORE:</label>
+      <input id="lblScore" type="text" />
+    </div>
+    <div id="time">
+      <label for="lblTime">TIME:</label>
+      <input id="lblTime" type="text" />
+    </div>
+    <div id="gamedata">
+      <h1>Game Data:</h1>
+      <h3 id="usernameheading">User Name:<span id="gameusernamevalue"></span></h3>
+      <p id="gameusernamevalue" class="gamedata"></p>
+      <h3 class="gamedataheading">Number Of Lives:</h3>
+      <p id="gamelivesdata" class="gamedata"></p>
+      <h3 class="gamedataheading">Time:</h3>
+      <p id="gameTimedata" class="gamedata"></p>
+    </div>
+    <div id-="actualgame">
       <canvas id="canvas" height="600" width="600" style="background-color:blue;"></canvas>
-      </div>
-      <div id="gamesettings">
-        <h1>Game Settings</h1>
-        <h3 class="game_settings_ingame_headings"> Game Time: <span id="game_game_time"></span></h3>
-        <h3 class="game_settings_ingame_headings"> Number Of Ghosts: <span id="game_ghosts_number"></span></h3>
-        <h3 class="game_settings_ingame_headings"> Game Balls:</h3>
-        <h4> 5 Points <span id="game5points"></span> </h4>
-        <h4> 15 Points <span id="game15points"></span></h4>
-        <h4> 25 Points <span id="game25points"></span></h4>
+    </div>
+    <div id="gamesettings">
+      <h1>Game Settings</h1>
+      <h3 class="game_settings_ingame_headings"> Game Time: <span id="game_game_time"></span></h3>
+      <h3 class="game_settings_ingame_headings"> Number Of Ghosts: <span id="game_ghosts_number"></span></h3>
+      <h3 class="game_settings_ingame_headings"> Game Balls:</h3>
+      <h4> 5 Points <span id="game5points"></span> </h4>
+      <h4> 15 Points <span id="game15points"></span></h4>
+      <h4> 25 Points <span id="game25points"></span></h4>
 
-        <h3 class="game_settings_ingame_headings"> Game Movement Buttons:</h3>
+      <h3 class="game_settings_ingame_headings"> Game Movement Buttons:</h3>
 
 
-      </div>
-      <!-- <canvas id="canvas" height="600" width="600" style="background-color:rgb(139, 208, 161)"></canvas> -->
+    </div>
+    <!-- <canvas id="canvas" height="600" width="600" style="background-color:rgb(139, 208, 161)"></canvas> -->
   </div>
   <!-- ==================================Settings==================================================================================== -->
   <div id="settings" style="display:none;">
@@ -305,20 +349,20 @@
         <button id="setSettingsToGame" type="button" class="button-28">Start Game</button>
       </div>
     </form>
-    
 
 
-      <!-- <div id="game" style="text-align:center;display:block">
+
+    <!-- <div id="game" style="text-align:center;display:block">
       <div id="time">
         <label for="lblTime">TIME:</label>
         <input id="lblTime" type="text" />
       </div>
       <canvas id="canvas" height="600" width="600px"></canvas>
     </div> -->
-    </div>
+  </div>
 
-    <!-- ==================================Settings==================================================================================== -->
-    <!-- <div id="settings" style="display:none;">
+  <!-- ==================================Settings==================================================================================== -->
+  <!-- <div id="settings" style="display:none;">
       <form action="" id="settingsform" onsubmit="return false">
         <div class="settingslabelinputdiv">
           <label id="upbtnlabel" class="settingslabel">Up Button:</label>
@@ -366,9 +410,9 @@
 
     </div> -->
 
-    <!-- ============================================================================================================================ -->
-    <div id="resources" style="display: none">
-      <!-- <img src="Images/flags/flag1.gif" />
+  <!-- ============================================================================================================================ -->
+  <div id="resources" style="display: none">
+    <!-- <img src="Images/flags/flag1.gif" />
     <img src="Images/flags/flag2.gif" />
     <img src="Images/flags/flag3.gif" />
     <img src="Images/flags/flag4.gif" />
@@ -377,14 +421,14 @@
     <img src="Images/flags/flag7.gif" />
     <img src="Images/flags/flag8.gif" />
     <img src="Images/flags/flag10.gif" /> -->
-      <img src="Images/pacman.JPG" />
-      <img src="Images/pacman/pacman2.png">
-      <img src="Images/ghosts/ghost1.png">
-      <img src="Images/ghosts/ghost2.png">
-      <img src="Images/ghosts/ghost3.png">
-      <img src="Images/ghosts/ghost4.png">
+    <img src="Images/pacman.JPG" />
+    <img src="Images/pacman/pacman2.png">
+    <img src="Images/ghosts/ghost1.png">
+    <img src="Images/ghosts/ghost2.png">
+    <img src="Images/ghosts/ghost3.png">
+    <img src="Images/ghosts/ghost4.png">
 
-    </div>
+  </div>
 </body>
 <script type="text/javascript" src="./register.js"></script>
 <script type="text/javascript" src="./settings.js"></script>

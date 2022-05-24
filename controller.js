@@ -72,3 +72,19 @@ function replace(show) {
 
 	}
 }
+
+$(document).on("click", ".modal", function (event) {
+	$(this).hide(); // hide when clicked
+});
+
+
+$(document).on("click", function (event) {
+	var $tgt = $(event.target);
+	if (!$tgt.is(".modal") && !$tgt.is(".close"));
+});
+
+
+$(document).keydown(function (e) {
+	var code = e.keyCode || e.which;
+	if (code == 27) $(".modal").hide();
+});
