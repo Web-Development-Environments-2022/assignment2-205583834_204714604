@@ -1,7 +1,0 @@
-{
-  "editor.formatOnSave": true,
-  "editor.formatOnSaveMode": "file",
-  "workbench.editor.languageDetectionHints": {
-    "notebookEditors": true
-  }
-}
