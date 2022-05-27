@@ -1,41 +1,47 @@
 var context;
 var shape = new Object();
 var board;
+var newCell;
 var score;
-var pac_color;
 var start_time;
 var time_elapsed;
 var interval;
+var interval_teleport;
+var interval_pill;
 var actor = new Image();
 var teleportImg = new Image();
+var pill = new Image();
 var bonousImg = new Image();
-var food;
 var foodImage;
-var wallImage;
+var wallImage = new Image();
 var bonousX = 8;
 var bonousY = 9;
 var bonousActivated = true;
 foodImage = new Image();
+
 //canvas:
 var boardHeight;
 var boardWidth;
-// var canvasCellCenterOffset;
 var boardCellRadius;
 var boardCell;
-var boardSize
-var gameCompleted;
-var lostLife = false;
-var firstTime;
-var isBlackholeActivated = false;
 
-//settings :
+var randomX_1;
+var randomY_1;
+var randomX_2;
+var randomY_2;
+var randomX_11;
+var randomY_11;
+
+//settings:
 var boardSize;
 var upButtonNumber;
 var downButtonNumber;
 var leftButtonNumber;
 var rightButtonNumber;
-var time; // the total time fot the game choosen by the user
+var time;
 var maxScore;
+var passedtime;
+
 //balls:
 var color5;
 var color15;
@@ -45,27 +51,20 @@ var ballsRemain;
 var ball5Remain;
 var ball15Remain;
 var ball25Remain;
+
 //monster:
 var monsterNumber;
 var monstersRemain;
 var monsterscenter;
 var monsterMoves;
+
 //pacmen:
-var pacmenRemain;
+var lifeGameRemain;
+
 //moving Bonus:
-var movingBonusRemain; // TODO: add movment elment , add +50
-var movingBonuEaten;
-var movingBonusRemainI;
-var movingBonusRemainJ;
-//blackHole:
-var blackHoleRemain;
-var blackHoleI;
-var blackHoleJ;
+var movingBonusRemain;
+
 //bonus life:
-var lifeBonusRemain;
-var lifeBonusEaten;
-var lifeBonusI;
-var lifeBonusJ;
 var counterDraws = 0;
 var ghost1_x;
 var ghost1_y;
@@ -79,6 +78,9 @@ var ghost1Img;
 var ghost2Img;
 var ghost3Img;
 var ghost4Img;
+var timeout_hole;
+var timeout_pill;
+var gameAudio = new Audio("./Images/Audio/PaCovid_Audio.mp3");
 
 var emptyCells = new Array();
 
@@ -92,6 +94,15 @@ function updateEmptyCells() {
 	}
 }
 
+function update_score() { document.getElementById("scorevalue").innerHTML = score; }
+
+function update_buttons() {
+	document.getElementById("upbutton").innerHTML = upButtonName;
+	document.getElementById("downbutton").innerHTML = downButtonName;
+	document.getElementById("leftbutton").innerHTML = leftButtonName;
+	document.getElementById("rightbutton").innerHTML = rightButtonName;
+}
+
 function getRandomEmptyCell() {
 	let rand = Math.floor(Math.random() * emptyCells.length);
 	let ret = emptyCells[rand];
@@ -99,36 +110,77 @@ function getRandomEmptyCell() {
 	return ret;
 }
 
+function update_lives() {
+	if (shape.i == ghost1_x && shape.j == ghost1_y) {
+		lifeGameRemain--;
+		score = score - 10;
+		board[shape.i][shape.j] = 0;
+		draw_pacman();
+	}
 
+	else if (shape.i == ghost2_x && shape.j == ghost2_y) {
+		lifeGameRemain--;
+		score = score - 10;
+		board[shape.i][shape.j] = 0;
+		draw_pacman();
+	}
 
-// $(document).ready(function() {
-// 	context = canvas.getContext("2d");
-// 	Start();
-// });
+	else if (shape.i == ghost3_x && shape.j == ghost3_y) {
+		lifeGameRemain--;
+		score = score - 10;
+		board[shape.i][shape.j] = 0;
+		draw_pacman();
+	}
+
+	else if (shape.i == ghost4_x && shape.j == ghost4_y) {
+		lifeGameRemain--;
+		score = score - 10;
+		board[shape.i][shape.j] = 0;
+		draw_pacman();
+	}
+	if (lifeGameRemain >= 0) { document.getElementById("numberoflivesvalue").innerHTML = lifeGameRemain; }
+}
+
+function update_time() {
+	let curr_time = new Date();
+	let passedtime = (curr_time - start_time) / 1000;
+	document.getElementById("timevalue").innerHTML = passedtime;
+}
+
+function disableScrollling() {
+	window.addEventListener("keydown", function (e) {
+		if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
+			e.preventDefault();
+		}
+	}, false);
+}
 
 function Start() {
+	gameAudio.play();
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");
 	boardWidth = canvas.width;
 	boardHeight = canvas.height;
-	// 	console.log("start");
+	randomX_1 = -1;
+	randomY_1 = -1;
+	randomX_2 = -1;
+	randomY_2 = -1;
+	randomX_11 = -1;
+	randomY_11 = -1;
 	board = new Array();
 	boardSize = 20;
 	ballsRemain = 50;
-	// ballsRemain = ballNumber;
 	ball25Remain = Math.floor(ballsRemain * 0.1);
 	ball15Remain = Math.floor(ballsRemain * 0.3);
 	ball5Remain = Math.floor(ballsRemain * 0.6);
 	monstersRemain = monsterNumber;
-	lifeBonusEaten = false;
-	pacmenRemain = 1;
-	movingBonuEaten = false;
-	movingBonusRemain = 1; // TODO: add movment elment
-	blackHoleRemain = 2;
-	lifeBonusRemain = 5;
+	lifeGameRemain = 5;
+	movingBonusRemain = 1;
+
 	//monsters:
 	monsterscenter = [[0, 0], [0, (boardSize - 1)], [(boardSize - 1), 0], [(boardSize - 1), (boardSize - 1)]];
 	monsterMoves = [0, 0, 0, 0];
+
 	//center for drawing:
 	boardCellRadius = boardSize / 2;
 	boardWidth = canvas.width;
@@ -145,19 +197,17 @@ function Start() {
 	draw_pacman();
 	draw_ghosts();
 	draw_balls();
-
+	disableScrollling();
 
 	keysDown = {};
 	addEventListener("keydown", function (e) { keysDown[e.keyCode] = true; }, false);
 	addEventListener("keyup", function (e) { keysDown[e.keyCode] = false; }, false);
 	interval = setInterval(UpdatePosition, 250);
+	interval_teleport = setInterval(teleporterFunctionality, 20000);
+	interval_pill = setInterval(pillFunctionality, 10000);
 }
 
-
-
-
 function draw_balls() {
-	//clearRect();
 	var ball5num = Math.floor(0.6 * ballNumber);
 	var ball15num = Math.floor(0.3 * ballNumber);
 	var ball25num = Math.floor(0.1 * ballNumber);
@@ -193,8 +243,6 @@ function draw_balls() {
 	}
 
 	while (counter25 < ball25num) {
-		// rand_x = Math.floor(Math.random() * 20);
-		// rand_y = Math.floor(Math.random() * 20);
 		let tup = getRandomEmptyCell();
 		let rand_x = tup[0];
 		let rand_y = tup[1];
@@ -216,7 +264,6 @@ function initboard() {
 		board[i] = inner_array;
 	}
 	return board;
-
 }
 
 function draw_walls() {
@@ -632,8 +679,6 @@ function draw_walls() {
 }
 function draw_pacman() {
 	let find_position = false;
-	// let rand_x = Math.floor(Math.random() * 20);
-	// let rand_y = Math.floor(Math.random() * 20);
 	let tup = getRandomEmptyCell();
 	let rand_x = tup[0];
 	let rand_y = tup[1];
@@ -650,7 +695,6 @@ function draw_pacman() {
 	find_position = true
 }
 
-
 function findRandomEmptyCell(board) {
 	var i = Math.floor(Math.random() * (boardSize - 1) + 1);
 	var j = Math.floor(Math.random() * (boardSize - 1) + 1);
@@ -660,8 +704,6 @@ function findRandomEmptyCell(board) {
 	}
 	return [i, j];
 }
-
-
 
 function GetKeyPressed() {
 	if (keysDown[upButtonNumber]) {
@@ -682,11 +724,10 @@ function Draw() {
 	counterDraws++;
 	canvas.width = canvas.width; //clean board
 	context.rect(0, 0, boardWidth, boardHeight);
-	context.fillStyle = "blue";
+	context.fillStyle = "black";
 	context.fill();
 	lblScore.value = score;
 	lblTime.value = time_elapsed;
-	//draw_walls();
 
 	for (var i = 0; i < boardSize; i++) {
 		for (var j = 0; j < boardSize; j++) {
@@ -708,38 +749,29 @@ function Draw() {
 				context.drawImage(color25, i * 30, j * 30, 25, 25);
 			}
 
-
-
 			else if (board[i][j] === 4) {
 				context.beginPath();
-				context.rect(30 * i, 30 * j, 30, 30)
-				//context.rect(center.x - boardCellRadius, center.y - boardCellRadius, boardCell, boardCell);
-				context.fillStyle = "black"; //color
-				context.fill();
+				context.rect(30 * i, 30 * j, 30, 30);
+				wallImage.src = "Images/wall.png";
+				context.drawImage(wallImage, i * 30, j * 30, 30, 30);
+			}
+
+			else if (board[i][j] === 10) {
+				context.drawImage(teleportImg, i * 30, j * 30, 33, 33);
+			}
+
+			else if (board[i][j] === 11) {
+				context.drawImage(pill, i * 30, j * 30, 33, 33);
 			}
 		}
 	}
-	if (monsterNumber == 1) {
-		context.drawImage(ghost1Img, ghost1_x * 30, ghost1_y * 30, 35, 35);
-	}
-	if (monsterNumber == 2) {
-		context.drawImage(ghost1Img, ghost1_x * 30, ghost1_y * 30, 35, 35);
-		context.drawImage(ghost2Img, ghost2_x * 30, ghost2_y * 30, 35, 35);
-	}
-	if (monsterNumber == 3) {
-		context.drawImage(ghost1Img, ghost1_x * 30, ghost1_y * 30, 35, 35);
-		context.drawImage(ghost2Img, ghost2_x * 30, ghost2_y * 30, 35, 35);
-		context.drawImage(ghost3Img, ghost3_x * 30, ghost3_y * 30, 35, 35);
-	}
-	if (monsterNumber == 4) {
-		context.drawImage(ghost1Img, ghost1_x * 30, ghost1_y * 30, 35, 35);
-		context.drawImage(ghost2Img, ghost2_x * 30, ghost2_y * 30, 35, 35);
-		context.drawImage(ghost3Img, ghost3_x * 30, ghost3_y * 30, 35, 35);
-		context.drawImage(ghost4Img, ghost4_x * 30, ghost4_y * 30, 35, 35);
-	}
-	teleporterFunctionality();
 	bonous_50_points();
 	UpdateGhostsPosition();
+	update_lives();
+	update_time();
+	update_score();
+	update_buttons();
+	checkifgameover();
 }
 
 function draw_ghosts() {
@@ -794,11 +826,49 @@ function draw_ghosts() {
 
 }
 
-function drawPacmenImg(x, y) {
-	actor.src = "Images/pacman/pacman2.png";
-	context.drawImage(actor, x - boardCellRadius / 1.5, y - boardCellRadius / 1.5, boardCellRadius * 1.5, boardCellRadius * 1.5);
+function checkifgameover() {
+	let go = false;
+	if (lifeGameRemain <= 0) {
+		alert("Loser!");
+		gameAudio.paused();
+		window.clearInterval(interval);
+		go = true;
+	}
 
+	else if (score >= 100) {
+		alert("Winner!!!");
+		gameAudio.paused();
+		go = true;
+	}
+
+
+	else if (passedtime >= time) {
+		let curr_time = new Date();
+		passedtime = (curr_time - start_time) / 1000 / 60;
+		window.clearInterval(interval);
+		let str = "you are better than" + score.toString() + "points!";
+		gameAudio.paused();
+		alert(str);
+		go = true;
+	}
+
+	else if (go) {
+		let answer = window.confirm("Start a new game?");
+		if (answer) {
+			window.clearInterval(interval);
+			Start();
+			replace('game')
+		}
+
+		else if (!answer) {
+			window.clearInterval(interval);
+			Start();
+			replace('welcome');
+		}
+		go = false;
+	}
 }
+
 function UpdatePosition() {
 
 	board[shape.i][shape.j] = "empty";
@@ -912,7 +982,6 @@ function UpdatePosition() {
 			}
 		}
 	}
-
 	if (board[shape.i][shape.j] == 5) {
 		score += 5;
 	}
@@ -922,18 +991,53 @@ function UpdatePosition() {
 	else if (board[shape.i][shape.j] == 25) {
 		score += 25;
 	}
+	else if ((shape.i == randomX_1) && (shape.j == randomY_1)) {
+
+		if (board[randomX_2 + 1][randomY_2] != 4) {
+			shape.i = randomX_2 + 1;
+			shape.j = randomY_2;
+		}
+		else if (board[randomX_2][randomY_2 + 1] != 4) {
+			shape.i = randomX_2;
+			shape.j = randomY_2 + 1;
+		}
+		else if (board[randomX_2 - 1][randomY_2] != 4) {
+			shape.i = randomX_2 - 1;
+			shape.j = randomY_2;
+		}
+		else if (board[randomX_2][randomY_2 - 1] != 4) {
+			shape.i = randomX_2;
+			shape.j = randomY_2 - 1;
+		}
+	}
+
+	else if ((shape.i == randomX_2) && (shape.j == randomY_2)) {
+		if (board[randomX_1 + 1][randomY_1] != 4) {
+			shape.i = randomX_1 + 1;
+			shape.j = randomY_1;
+		}
+		else if (board[randomX_1][randomY_1 + 1] != 4) {
+			shape.i = randomX_1;
+			shape.j = randomY_1 + 1;
+		}
+		else if (board[randomX_1 - 1][randomY_1] != 4) {
+			shape.i = randomX_1 - 1;
+			shape.j = randomY_1;
+		}
+		else if (board[randomX_1][randomY_1 - 1] != 4) {
+			shape.i = randomX_1;
+			shape.j = randomY_1 - 1;
+		}
+	}
+
+	else if ((shape.i == randomX_11) && (shape.j == randomY_11)) {
+		if (lifeGameRemain < 5) { lifeGameRemain++; }
+	}
+
 	board[shape.i][shape.j] = "pacmen";
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
-	// if (score >= 20 && time_elapsed <= 10) {
-	// 	pac_color = "green";
-	// }
-	if (score == 100) {
-		window.clearInterval(interval);
-		window.alert("Game completed");
-	} else {
-		Draw();
-	}
+	Draw();
 }
 
 function UpdateGhostsPosition() {
@@ -1041,37 +1145,41 @@ function UpdateGhostsPosition() {
 
 function teleporterFunctionality() {
 
-	if (counterDraws % 2500 == 0) {
-		isBlackholeActivated = !isBlackholeActivated;
-	}
-	if (isBlackholeActivated) {
-		// Draw random teleporters
-		var lst1 = getRandomEmptyCell();
-		var lst2 = getRandomEmptyCell();
-		let randomX_1 = lst1[0];
-		let randomY_1 = lst1[1];
-		let randomX_2 = lst2[0];
-		let randomY_2 = lst2[1];
-		teleportImg.src = "Images/teleporter.gif";
-		context.drawImage(teleportImg, randomX_1 * 30, randomY_1 * 30, 33, 33);
-		context.drawImage(teleportImg, randomX_2 * 30, randomY_2 * 30, 33, 33);
+	// Draw random teleporters
+	var lst1 = getRandomEmptyCell();
+	var lst2 = getRandomEmptyCell();
+	randomX_1 = lst1[0];
+	randomY_1 = lst1[1];
+	randomX_2 = lst2[0];
+	randomY_2 = lst2[1];
+	teleportImg.src = "Images/teleporter.gif";
 
-		// The functionality when pacman on the teleporter
-		if ((shape.i == randomX_1) && (shape.j == randomY_1)) {
-			shape.i = randomX_2;
-			shape.j = randomY_2;
-			draw_pacman();
-		}
+	board[randomX_1][randomY_1] = 10;
+	board[randomX_2][randomY_2] = 10;
 
-		if ((shape.i == randomX_2) && (shape.j == randomY_2)) {
-			shape.i = randomX_1;
-			shape.j = randomY_1;
-			draw_pacman();
-		}
-	} else {
-		emptyCells.push(lst1);
-		emptyCells.push(lst2);
-	}
+	// The functionality when pacman on the teleporter
+	timeout_hole = setTimeout(() => {
+		board[randomX_1][randomY_1] = 0;
+		board[randomX_2][randomY_2] = 0;
+		randomX_1 = -1;
+		randomY_1 = -1;
+		randomX_2 = -1;
+		randomY_2 = -1;
+	}, 10000)
+}
+
+function pillFunctionality() {
+	var lst = getRandomEmptyCell();
+	randomX_11 = lst[0];
+	randomY_11 = lst[1];
+	pill.src = "Images/pill.png";
+	board[randomX_11][randomY_11] = 11;
+
+	timeout_pill = setTimeout(() => {
+		board[randomX_11][randomY_11] = 0;
+		randomX_11 = -1;
+		randomY_11 = -1;
+	}, 5000)
 }
 
 function bonous_50_points() {
@@ -1081,8 +1189,7 @@ function bonous_50_points() {
 	}
 	if (bonousActivated) {
 
-		// Draw bonous
-		bonousImg.src = "Images/IMG-0172.JPG";
+		bonousImg.src = "Images/bonous.png";
 		context.drawImage(bonousImg, bonousX * 30, bonousY * 30, 33, 33);
 		let randomPos = Math.floor(Math.random() * 5);
 

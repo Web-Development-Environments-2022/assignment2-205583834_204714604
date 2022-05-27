@@ -11,35 +11,15 @@
   <link rel="stylesheet" href="style/game.css" />
   <link rel="stylesheet" type="text/css" href="style/aboutModal.css">
 
-
-
-
-
   <script src="./jquery-3.4.1.slim.min.js"></script>
   <script type="text/javascript" src="./controller.js"></script>
   <script type="text/javascript" src="./game.js"></script>
   <script type="text/javascript" src="./app.js"></script>
-
   <script type="text/javascript" src="./settings.js"></script>
-
   <script type=text/javascript src="./game_wrappers.js"></script>
-
-
-  <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
 </head>
 
 <body>
-  <!-- <div id=""></div>
-		<div id="header"> 
-            <div id="navWrapper">
-                <div class="headerNav" >
-			    	<a href="#header" class="active navOp" onclick="replace('welcome')" ><span style="height: 300px;">Welcome</span></a>
-			    	<a href="#header" class="navOp" onclick="replace('register')">Register</a>
-			    	<a href="#header" class="navOp" onclick="replace('login')">Login</a>
-			    	<a href="#header" class="navOp" onclick="replace('about')">About</a>
-			    </div>
-			</div>
-        </div> -->
   <header>
     <div id="header-right" class="header-item">
       <div class="logo">
@@ -64,7 +44,6 @@
       <div class="title">Login</div>
       <div class="bar"></div>
     </a>
-    <!-- <a href="#" id="about" class="button mBtn" onclick="showAbout()">About</a> -->
     <a href="#" onclick="replace('about')" class="link">
       <div class="title">About</div>
       <div class="bar"></div>
@@ -80,47 +59,10 @@
         <button class="button-28" onclick="replace('register')">Sign Up</button>
         <button class="button-28" onclick="replace('login')">Login</button>
       </div>
-      <!-- <h1>Welcome to PaCovid</h1>
-      <h2>Help Covico control the world</h2>
-      <div id="welcomeImagesWrapper">
-        <img src="Images/login_welcome.png" class="welcomeImages" />
-        <img src="Images/sign_up_welcome.png" class="welcomeImages" onclick="replace('login')" />
-      </div>
-      <div>
-        <p class="welcomeText">Sign gUp</p>
-        <p class="welcomeText">Login</p>
-      </div> -->
     </div>
 
     <!-- =========================================================== Register =========================================================== -->
-    <!-- 
-		<div id = "register" style="text-align:center" onclick = "replace('register')">
-				<form action="" id="myform">
-					<div class="container">
-						<h1>💪<b><i> Let's Play! </i></b>💪</h1>
-						<p>Please fill in this form to create an account.</p>
-						<hr> 
-						<label for="text" class="regLabel"><b><i><p style="font-size:30px;margin-bottom:0px">User Name:</p></i></b></label>
-						<input type="text"  class="field" placeholder="Enter User Name" name="email" id="username" style="font-size:20px;" required>
-						<label for="psw"><b><i><p style="font-size:30px;margin-bottom:0px">Password:</p></i></b></label>
-						<input type="password" class="field" placeholder="Enter Password" name="psw" id="psw" style="font-size:20px;" required>
-						<label for="fullname"><b><i><p style="font-size:30px;margin-bottom:0px"><b>Full Name:</p></i></b></label>
-						<input type="text" class="field" placeholder="Enter Full Name" name="fullname" id="fullname" style="font-size:20px;" required>
-						<label for="email"><b><i><p style="font-size:30px;margin-bottom:0px">Email:</p></i></b></label>
-						<input type="text" placeholder="Enter Email" name="email" id="email" style="font-size:20px;" required>
-						<label for="date"><b><i><p style="font-size:30px;margin-bottom:0px">Date:</p></i></b></label>
-						<input type="date" placeholder="Enter Date" name="date" id="date"  style="font-size:20px;color:grey" required>
-						<br>
-						<br>
-						<br>
-						<button type="submit" class="registerbtn" onclick="registerUser()"><p id="registerbtntext"><b>Register</b></p>
-							<td>
-								<p id="pass_error"></p>
-							</td>
-						</button>
-					</div>
-				</form>
-        </div> -->
+
     <div id="register" style="display: none">
       <div id="signupheader">
         <img src="Images/titles/sign_up.png">
@@ -238,25 +180,26 @@
   <!-- =========================================================== Game =========================================================== -->
 
   <div id="game" style="display: none">
-    <div id="score">
+    <div id="score" style="display: none;">
       <label for="lblScore">SCORE:</label>
       <input id="lblScore" type="text" />
     </div>
-    <div id="time">
+    <div id="time" style="display: none;">
       <label for="lblTime">TIME:</label>
       <input id="lblTime" type="text" />
     </div>
     <div id="gamedata">
       <h1>Game Data:</h1>
-      <h3 id="usernameheading">User Name:<span id="gameusernamevalue"></span></h3>
-      <p id="gameusernamevalue" class="gamedata"></p>
-      <h3 class="gamedataheading">Number Of Lives:</h3>
-      <p id="gamelivesdata" class="gamedata"></p>
-      <h3 class="gamedataheading">Time:</h3>
-      <p id="gameTimedata" class="gamedata"></p>
+      <h3 id="usernameheading" class="dataheadings">User Name:<span id="gameusernamevalue"></span></h3>
+      <p id="gameusernamevalue" class="dataheadings"></p>
+      <h3 class="gamedataheading" class="dataheadings">Number Of Lives: <span id="numberoflivesvalue"></span></h3>
+      <p id="gamelivesdata" class="dataheadings"></p>
+      <h3 class="gamedataheading">Time:<span id="timevalue"></span></h3>
+      <h3 class="gamedataheading">Score:<span id="scorevalue"></span></h3>
+      <p id="gameTimedata" class="dataheadings"></p>
     </div>
     <div id-="actualgame">
-      <canvas id="canvas" height="600" width="600" style="background-color:blue;"></canvas>
+      <canvas id="canvas" height="600" width="600" style="background-color:black;"></canvas>
     </div>
     <div id="gamesettings">
       <h1>Game Settings</h1>
@@ -266,12 +209,12 @@
       <h4> 5 Points <span id="game5points"></span> </h4>
       <h4> 15 Points <span id="game15points"></span></h4>
       <h4> 25 Points <span id="game25points"></span></h4>
-
       <h3 class="game_settings_ingame_headings"> Game Movement Buttons:</h3>
-
-
+      <h4> UP: <span id="upbutton" class="game_settings_ingame_headings"></span></h4>
+      <h4> DOWN: <span id="downbutton" class="game_settings_ingame_headings"></span></h4>
+      <h4> LEFT: <span id="leftbutton" class="game_settings_ingame_headings"></span></h4>
+      <h4> RIGHT: <span id="rightbutton" class="game_settings_ingame_headings"></span></h4>
     </div>
-    <!-- <canvas id="canvas" height="600" width="600" style="background-color:rgb(139, 208, 161)"></canvas> -->
   </div>
   <!-- ==================================Settings==================================================================================== -->
   <div id="settings" style="display:none;">
@@ -349,78 +292,10 @@
         <button id="setSettingsToGame" type="button" class="button-28">Start Game</button>
       </div>
     </form>
-
-
-
-    <!-- <div id="game" style="text-align:center;display:block">
-      <div id="time">
-        <label for="lblTime">TIME:</label>
-        <input id="lblTime" type="text" />
-      </div>
-      <canvas id="canvas" height="600" width="600px"></canvas>
-    </div> -->
   </div>
-
-  <!-- ==================================Settings==================================================================================== -->
-  <!-- <div id="settings" style="display:none;">
-      <form action="" id="settingsform" onsubmit="return false">
-        <div class="settingslabelinputdiv">
-          <label id="upbtnlabel" class="settingslabel">Up Button:</label>
-          <input id="upbtninput" type="text" value="ArrowUp">
-        </div>
-        <div class="settingslabelinputdiv">
-          <label id="downbtnlabel" class="settingslabel">Down Button:</label>
-          <input id="downbtninput" type="text" value="ArrowDown">
-        </div>
-        <div class="settingslabelinputdiv">
-          <label id="leftbtnlabel" class="settingslabel">Left Button:</label>
-          <input id="leftbtninput" type="text" value="ArrowLeft">
-        </div>
-        <div class="settingslabelinputdiv">
-          <label id="rightbtnlabel" class="settingslabel">Right Button:</label>
-          <input id="rightbtninput" type="text" value="ArrowRight">
-        </div>
-        <div class="settingslabelinputdiv">
-          <label id="color5label">5 Points Ball Color:</label>
-          <input type="color" id="color5input" value="#a24141">
-        </div>
-        <div class="settingslabelinputdiv">
-          <label id="color15label">15 Points Ball Color:</label>
-          <input type="color" id="color15input" value="#23abc7">
-        </div>
-        <div class="settingslabelinputdiv">
-          <label id="color25label">25 Points Ball Color:</label>
-          <input type="color" id="color25input" value="#e7c798">
-        </div>
-        <div class="settingslabelinputdiv">
-          <label id="ballnum">Number Of Balls:</label>
-          <input id="ballnuminput" type="number" min="50" max="90">
-        </div>
-        <div class="settingslabelinputdiv">
-          <label id="monsternum">Number Of Monsters:</label>
-          <input type="number" min="1" max="4" id="monsternuminput">
-        </div>
-        <div class="settingslabelinputdiv">
-          <label id="gametime">Game Time (min):</label>
-          <input type="number" min="60">
-        </div>
-        <div class="settingslabelinputdiv">
-          <button onclick="replace('game')">Start Game</button>
-        </div>
-
-    </div> -->
 
   <!-- ============================================================================================================================ -->
   <div id="resources" style="display: none">
-    <!-- <img src="Images/flags/flag1.gif" />
-    <img src="Images/flags/flag2.gif" />
-    <img src="Images/flags/flag3.gif" />
-    <img src="Images/flags/flag4.gif" />
-    <img src="Images/flags/flag5.gif" />
-    <img src="Images/flags/flag6.gif" />
-    <img src="Images/flags/flag7.gif" />
-    <img src="Images/flags/flag8.gif" />
-    <img src="Images/flags/flag10.gif" /> -->
     <img src="Images/pacman.JPG" />
     <img src="Images/pacman/pacman2.png">
     <img src="Images/ghosts/ghost1.png">

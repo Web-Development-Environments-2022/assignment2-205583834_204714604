@@ -5,6 +5,12 @@ $(document).ready(function () {
 	downButtonNumber = 40;
 	leftButtonNumber = 37;
 	rightButtonNumber = 39;
+
+	upButtonName = 'UP';
+	downButtonName = 'DOWN';
+	leftButtonName = 'LEFT';
+	rightButtonName = 'RIGHT';
+
 	$("#setSettingsToGame").click(setSettings);
 	$("#upbtninput").keydown(function (event) { setUpBtn(this, event); });
 	$("#downbtninput").keydown(function (event) { setDownBtn(this, event); });
